@@ -1,0 +1,82 @@
+// SLiM script file
+
+{John work}: nr2
+{John home}: "123456"
+
+nr1 : "nr2"
+nr2 : "nr2"
+
+phone : work
+person : John
+
+//do {
+//	{notify {person phone}}
+//	ping
+//}
+
+// do {
+//    if {eqi nr1 nr2} {
+//       {notify msg1:"nr1 and nr2 are the same"}
+//    }{
+//       {notify msg2:"nr1 and nr2 are different!"}
+//    }
+// }
+
+red
+green
+blue
+
+do {
+    print red green blue
+}
+
+colors: {red green blue white black}
+
+do {
+	
+	for X in colors
+	{
+	   print X
+	}
+}
+
+
+// How does a code that uses an inexistent link exist in the hyper graph???
+
+do {
+ 	{map spot left}
+ 	
+	{link target at spot}
+
+	{if {is target at left}
+		{
+		    {notify msg3: "I'm turning left"}
+		}{
+		    {notify msg4: "I'm turning right"}
+		}
+	}
+}
+
+// The above should have been
+// 
+// spot: left
+// {target at spot}
+// 
+// {if {target at left}
+//     {
+//         {notify ...}
+//     }{
+//         {notify ...}
+//     }
+// }
+
+
+
+
+// link light green
+// link light red
+
+// if {is light red}
+// {
+//     + engine brake
+// }
