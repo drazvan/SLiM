@@ -1,0 +1,131 @@
+{call {phone ?} now}
+{send file ? by email to ?}
+{call {phone {razvan other}}}
+{upload ? by ftp}
+{upload ? by http}
+{learn this ?}
+{for ? in ? do ?}
+{if ? then ?}
+{if ? then ? else ?}
+{ping}
+{go left}
+{go right}
+{go forward}
+{go back}
+{notify {user ?} {message ?}}
+{speak ?}
+{listen user}
+{show ? on map}
+{browse page ?}
+{play song ?}
+{fipa request ? to ?}
+{fipa inform ? to ?}
+{fipa ack to ?}
+{fipa cancel to ?}
+{search appartement in ?}
+{search hotel in ?}
+{analyze {apprtement ?} with user option ?}
+{location home}
+{location {work ?}}
+{location super-market}
+{use gps location}
+{read text file ?}
+{until ? do ?}
+{is ? linked to ? }
+{is link ?}
+{is link ? ?}
+{is link ? ? ?}
+{is link ? ? ? ?}
+{buy book {isbn ?} from amazon}
+{wait ? seconds}
+{? ask}
+{uucall {uuphone ?} now}
+{uusend file ? by email to ?}
+{uucall {uuphone {uurazvan other}}}
+{uuupload ? by ftp}
+{uuupload ? by http}
+{uulearn this ?}
+{uufor ? in ? do ?}
+{uuif ? then ?}
+{uuif ? then ? else ?}
+{uuping}
+{uugo left}
+{uugo right}
+{uugo forward}
+{uugo back}
+{uunotify {uuuser ?} {uumessage ?}}
+{uuspeak ?}
+{uulisten user}
+{uushow ? on map}
+{uubrowse page ?}
+{uuplay song ?}
+{uufipa request ? to ?}
+{uufipa inform ? to ?}
+{uufipa ack to ?}
+{uufipa cancel to ?}
+{uusearch appartement in ?}
+{uusearch hotel in ?}
+{uuanalyze {uuapprtement ?} with user option ?}
+{uulocation home}
+{uulocation {uuwork ?}}
+{uulocation super-market}
+{uuuse gps location}
+{uuread text file ?}
+{uuuntil ? do ?}
+{uuis ? linked to ? }
+{uuis link ?}
+{uuis link ? ?}
+{uuis link ? ? ?}
+{uuis link ? ? ? ?}
+{uubuy book {uuisbn ?} from amazon}
+{uuwait ? seconds}
+{yycall {yyphone ?} now}
+{yysend file ? by email to ?}
+{yycall {yyphone {yyrazvan other}}}
+{yyupload ? by ftp}
+{yyupload ? by http}
+{yylearn this ?}
+{yyfor ? in ? do ?}
+{yyif ? then ?}
+{yyif ? then ? else ?}
+{yyping}
+{yygo left}
+{yygo right}
+{yygo forward}
+{yygo back}
+{yynotify {yyuser ?} {yymessage ?}}
+{yyspeak ?}
+{yylisten user}
+{yyshow ? on map}
+{yybrowse page ?}
+{yyplay song ?}
+{yyfipa request ? to ?}
+{yyfipa inform ? to ?}
+{yyfipa ack to ?}
+{yyfipa cancel to ?}
+{yysearch appartement in ?}
+{yysearch hotel in ?}
+{yyanalyze {yyapprtement ?} with user option ?}
+{yylocation home}
+{yylocation {yywork ?}}
+{yylocation super-market}
+{yyuse gps location}
+{yyread text file ?}
+{yyuntil ? do ?}
+{yyis ? linked to ? }
+{yyis link ?}
+{yyis link ? ?}
+{yyis link ? ? ?}
+{yyis link ? ? ? ?}
+{yybuy book {yyisbn ?} from amazon}
+{yywait ? seconds}
+# CHECK
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
