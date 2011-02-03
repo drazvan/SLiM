@@ -6,12 +6,12 @@ Created on Dec 4, 2010
 
 import sys
 import antlr3
-from slimparser.output.slimLexer import slimLexer
-from slimparser.output.slimParser import slimParser
+from slim.lang.output.slimLexer import slimLexer
+from slim.lang.output.slimParser import slimParser
 
-from symbolic.waa import WAA
-from modules import Ping
-from lang import Lang
+from slim.symbolic.waa import WAA
+from slim.modules import Ping
+from slim.modules.lang import Lang
 
 def parse(stream, core):
     """ Parses the given stream with the slim grammar for a given core. 

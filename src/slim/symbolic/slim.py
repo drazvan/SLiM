@@ -4,8 +4,8 @@ This is the main model class.
 @author: Razvan
 '''
 
-from symbolic.symbol import Symbol
-from symbolic.link import Link
+from symbol import Symbol
+from link import Link
 
 class SLiM:
     """An implementation of the SLiM model. 

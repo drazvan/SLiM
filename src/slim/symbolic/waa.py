@@ -3,7 +3,7 @@ A simulation of a modular architecture.
 
 @author: Razvan
 '''
-from symbolic.slim import SLiM
+from slim import SLiM
 
 
 ''' The wrapper of the SLiM structure

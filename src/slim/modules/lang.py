@@ -3,8 +3,8 @@ Created on Dec 9, 2010
 
 @author: Razvan
 '''
-from modules import Module
-
+#from modules import Module
+from slim.modules import Module
 
 class Lang(Module):
     """A module that provides classical language capabilities such as 'if'.

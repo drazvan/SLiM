@@ -3,7 +3,7 @@ Created on Dec 4, 2010
 
 @author: Razvan
 '''
-from symbolic.symbol import Symbol
+from symbol import Symbol
 
 class Link(Symbol):
     """A link in the SLiM model.

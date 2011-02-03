@@ -3,8 +3,8 @@ Created on Oct 6, 2010
 
 @author: Razvan
 '''
-from symbolic.waa import WAA
-from modules import Ping
+from slim.symbolic.waa import WAA
+from slim.modules.modules import Ping
 
 if __name__ == '__main__':
     print "SLiM python prototype."

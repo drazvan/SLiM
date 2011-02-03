@@ -1,5 +1,5 @@
 '''
-Created on Oct 6, 2010
+Interface to modules in the SLiM architecture. 
 
 @author: Razvan
 '''
