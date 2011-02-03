@@ -906,7 +906,7 @@ class BaseTree(Tree):
         The first node of list is the root and the last is the parent of
         this node.
         """
-        if selfgetParent() is None:
+        if self.getParent() is None:
             return None
 
         ancestors = []

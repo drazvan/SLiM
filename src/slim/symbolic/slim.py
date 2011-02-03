@@ -220,29 +220,81 @@ class SLiM:
         Returns the id of a symbol or None.
         """
         
-        s_what = self.get(what)
+        # We go from mapping to mapping until we find an action or
+        # we find a symbol mapped to itself
+        if not what in self.symbols:
+            return None
+        
+        symbol = self.symbols[what]
+                
+        while symbol.id in self.mappings and \
+              self.mappings[symbol.id] != symbol.id and self.mappings[symbol.id] != None:
+            symbol = self.symbols[self.mappings[symbol.id]]
+            
+        type = self.get_type(symbol.id)
+
+        # the final symbol which represents what to do
+        s_what = symbol
         
         if s_what == None:
             print "Could not find '" + what + "'"
             return None
         
-        s_type = self.get(self.id_merge("type", s_what.id))
+        type = self.get_type(s_what.id)
         
         # Capability with no parameters
-        if s_type != None and s_type.id == "capability":
+        if type == "capability":
             module = self.get(self.id_merge("module", s_what.id)).info
             return module.do(s_what);
-        
+        # Action with no parameters
+        elif type == "action":
+            
+            # an action body is given by the {a 'action_name'} link
+            body = self.get(self.id_merge("a", s_what.id))
+            
+            if body != None:
+                return self.do(body.id)
+            
+            return None
+            
         else:
             # check if it's a link
             if s_what.id in self.links:
                 first = s_what.symbols[0]
-                s_type = self.get(self.id_merge("type", first.id))
+                type = self.get_type(first.id)
+                
+#                symbol = first
+#                type = self.get_type(symbol.id)
+#                
+#                while type != "action" and symbol.id in self.mappings and \
+#                      self.mappings[symbol.id] != symbol.id and self.mappings[symbol.id] != None:
+#                    symbol = self.symbols[self.mappings[symbol.id]]
+#                    type = self.get_type(symbol.id)
         
                 # Capability with parameters
-                if s_type != None and s_type.id == "capability":
+                if type == "capability":
                     module = self.get(self.id_merge("module", first.id)).info
                     return module.do(first, s_what.symbols[1:]);
+                
+                elif type == "action":
+                    
+                    # an action body is given by the {a 'action_name'} link
+                    body = self.get(self.id_merge("a", first.id))
+                                       
+                    if body != None:
+                        # extract and map parameters
+                        body_params = body.symbols[0]
+                        
+                        for j in range(min(len(body_params.symbols), len(s_what.symbols) - 1)):
+                            s_value = self.get(s_what.symbols[j + 1].id)
+                            self.map(body_params.symbols[j].id, s_value.id)
+                        
+                        body = body.symbols[1]
+                        
+                        return self.do(body.id)
+                    
+                    return None
+                     
                 
                 # Otherwise we will do every symbol in the link individually
                 result = None
@@ -263,7 +315,24 @@ class SLiM:
         
         For now the merging mechanism is a simple one: concatenation with "-" as separator.
         """
+        
+        if (len(ids) == 1):
+            return "{" + ids[0] + "}"
+        
         return "-".join(ids)
+
+    def get_type(self, id):
+        """ Returns the type of a given symbol.
+        
+        Searches for a link of the form {type id} and returns its mapping.
+        """
+        
+        s_type = self.get(self.id_merge("type", id))
+        
+        if s_type == None:
+            return None
+        
+        return s_type.id
 
     
     # Debug

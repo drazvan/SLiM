@@ -80,6 +80,7 @@ class Ping(Module):
         elif what.id == "pong": 
             print "pong"
         elif what.id == "notify":
-            print "notification: '", params[0].info, "'"
+            symbol = self.waa.core.get(params[0].id)
+            print "notification: '", symbol.info, "'"
         else:
             print "unknown action"

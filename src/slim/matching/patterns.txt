@@ -1,0 +1,1385 @@
+{call {phone ?} now}
+{send file ? by email to ?}
+{call {phone {razvan other}}}
+{upload ? by ftp}
+{upload ? by http}
+{learn this ?}
+{for ? in ? do ?}
+{if ? then ?}
+{if ? then ? else ?}
+{ping}
+{go left}
+{go right}
+{go forward}
+{go back}
+{notify {user ?} {message ?}}
+{speak ?}
+{listen user}
+{show ? on map}
+{browse page ?}
+{play song ?}
+{fipa request ? to ?}
+{fipa inform ? to ?}
+{fipa ack to ?}
+{fipa cancel to ?}
+{search appartement in ?}
+{search hotel in ?}
+{analyze {apprtement ?} with user option ?}
+{location home}
+{location {work ?}}
+{location super-market}
+{use gps location}
+{read text file ?}
+{until ? do ?}
+{is ? linked to ? }
+{is link ?}
+{is link ? ?}
+{is link ? ? ?}
+{is link ? ? ? ?}
+{buy book {isbn ?} from amazon}
+{wait ? seconds}
+{? ask}
+{uucall {uuphone ?} now}
+{uusend file ? by email to ?}
+{uucall {uuphone {uurazvan other}}}
+{uuupload ? by ftp}
+{uuupload ? by http}
+{uulearn this ?}
+{uufor ? in ? do ?}
+{uuif ? then ?}
+{uuif ? then ? else ?}
+{uuping}
+{uugo left}
+{uugo right}
+{uugo forward}
+{uugo back}
+{uunotify {uuuser ?} {uumessage ?}}
+{uuspeak ?}
+{uulisten user}
+{uushow ? on map}
+{uubrowse page ?}
+{uuplay song ?}
+{uufipa request ? to ?}
+{uufipa inform ? to ?}
+{uufipa ack to ?}
+{uufipa cancel to ?}
+{uusearch appartement in ?}
+{uusearch hotel in ?}
+{uuanalyze {uuapprtement ?} with user option ?}
+{uulocation home}
+{uulocation {uuwork ?}}
+{uulocation super-market}
+{uuuse gps location}
+{uuread text file ?}
+{uuuntil ? do ?}
+{uuis ? linked to ? }
+{uuis link ?}
+{uuis link ? ?}
+{uuis link ? ? ?}
+{uuis link ? ? ? ?}
+{uubuy book {uuisbn ?} from amazon}
+{uuwait ? seconds}
+{yycall {yyphone ?} now}
+{yysend file ? by email to ?}
+{yycall {yyphone {yyrazvan other}}}
+{yyupload ? by ftp}
+{yyupload ? by http}
+{yylearn this ?}
+{yyfor ? in ? do ?}
+{yyif ? then ?}
+{yyif ? then ? else ?}
+{yyping}
+{yygo left}
+{yygo right}
+{yygo forward}
+{yygo back}
+{yynotify {yyuser ?} {yymessage ?}}
+{yyspeak ?}
+{yylisten user}
+{yyshow ? on map}
+{yybrowse page ?}
+{yyplay song ?}
+{yyfipa request ? to ?}
+{yyfipa inform ? to ?}
+{yyfipa ack to ?}
+{yyfipa cancel to ?}
+{yysearch appartement in ?}
+{yysearch hotel in ?}
+{yyanalyze {yyapprtement ?} with user option ?}
+{yylocation home}
+{yylocation {yywork ?}}
+{yylocation super-market}
+{yyuse gps location}
+{yyread text file ?}
+{yyuntil ? do ?}
+{yyis ? linked to ? }
+{yyis link ?}
+{yyis link ? ?}
+{yyis link ? ? ?}
+{yyis link ? ? ? ?}
+{yybuy book {yyisbn ?} from amazon}
+{yywait ? seconds}
+{uvtxyzabccall {uvtxyzabcphone ?} now}
+{uvtxyzabcsend file ? by email to ?}
+{uvtxyzabccall {uvtxyzabcphone {uvtxyzabcrazvan other}}}
+{uvtxyzabcupload ? by ftp}
+{uvtxyzabcupload ? by http}
+{uvtxyzabclearn this ?}
+{uvtxyzabcfor ? in ? do ?}
+{uvtxyzabcif ? then ?}
+{uvtxyzabcif ? then ? else ?}
+{uvtxyzabcping}
+{uvtxyzabcgo left}
+{uvtxyzabcgo right}
+{uvtxyzabcgo forward}
+{uvtxyzabcgo back}
+{uvtxyzabcnotify {uvtxyzabcuser ?} {uvtxyzabcmessage ?}}
+{uvtxyzabcspeak ?}
+{uvtxyzabclisten user}
+{uvtxyzabcshow ? on map}
+{uvtxyzabcbrowse page ?}
+{uvtxyzabcplay song ?}
+{uvtxyzabcfipa request ? to ?}
+{uvtxyzabcfipa inform ? to ?}
+{uvtxyzabcfipa ack to ?}
+{uvtxyzabcfipa cancel to ?}
+{uvtxyzabcsearch appartement in ?}
+{uvtxyzabcsearch hotel in ?}
+{uvtxyzabcanalyze {uvtxyzabcapprtement ?} with user option ?}
+{uvtxyzabclocation home}
+{uvtxyzabclocation {uvtxyzabcwork ?}}
+{uvtxyzabclocation super-market}
+{uvtxyzabcuse gps location}
+{uvtxyzabcread text file ?}
+{uvtxyzabcuntil ? do ?}
+{uvtxyzabcis ? linked to ? }
+{uvtxyzabcis link ?}
+{uvtxyzabcis link ? ?}
+{uvtxyzabcis link ? ? ?}
+{uvtxyzabcis link ? ? ? ?}
+{uvtxyzabcbuy book {uvtxyzabcisbn ?} from amazon}
+{uvtxyzabcwait ? seconds}
+{uvtxyzabc? ask}
+{uvtxyzabcuucall {uvtxyzabcuuphone ?} now}
+{uvtxyzabcuusend file ? by email to ?}
+{uvtxyzabcuucall {uvtxyzabcuuphone {uvtxyzabcuurazvan other}}}
+{uvtxyzabcuuupload ? by ftp}
+{uvtxyzabcuuupload ? by http}
+{uvtxyzabcuulearn this ?}
+{uvtxyzabcuufor ? in ? do ?}
+{uvtxyzabcuuif ? then ?}
+{uvtxyzabcuuif ? then ? else ?}
+{uvtxyzabcuuping}
+{uvtxyzabcuugo left}
+{uvtxyzabcuugo right}
+{uvtxyzabcuugo forward}
+{uvtxyzabcuugo back}
+{uvtxyzabcuunotify {uvtxyzabcuuuser ?} {uvtxyzabcuumessage ?}}
+{uvtxyzabcuuspeak ?}
+{uvtxyzabcuulisten user}
+{uvtxyzabcuushow ? on map}
+{uvtxyzabcuubrowse page ?}
+{uvtxyzabcuuplay song ?}
+{uvtxyzabcuufipa request ? to ?}
+{uvtxyzabcuufipa inform ? to ?}
+{uvtxyzabcuufipa ack to ?}
+{uvtxyzabcuufipa cancel to ?}
+{uvtxyzabcuusearch appartement in ?}
+{uvtxyzabcuusearch hotel in ?}
+{uvtxyzabcuuanalyze {uvtxyzabcuuapprtement ?} with user option ?}
+{uvtxyzabcuulocation home}
+{uvtxyzabcuulocation {uvtxyzabcuuwork ?}}
+{uvtxyzabcuulocation super-market}
+{uvtxyzabcuuuse gps location}
+{uvtxyzabcuuread text file ?}
+{uvtxyzabcuuuntil ? do ?}
+{uvtxyzabcuuis ? linked to ? }
+{uvtxyzabcuuis link ?}
+{uvtxyzabcuuis link ? ?}
+{uvtxyzabcuuis link ? ? ?}
+{uvtxyzabcuuis link ? ? ? ?}
+{uvtxyzabcuubuy book {uvtxyzabcuuisbn ?} from amazon}
+{uvtxyzabcuuwait ? seconds}
+{uvtxyzabcyycall {uvtxyzabcyyphone ?} now}
+{uvtxyzabcyysend file ? by email to ?}
+{uvtxyzabcyycall {uvtxyzabcyyphone {uvtxyzabcyyrazvan other}}}
+{uvtxyzabcyyupload ? by ftp}
+{uvtxyzabcyyupload ? by http}
+{uvtxyzabcyylearn this ?}
+{uvtxyzabcyyfor ? in ? do ?}
+{uvtxyzabcyyif ? then ?}
+{uvtxyzabcyyif ? then ? else ?}
+{uvtxyzabcyyping}
+{uvtxyzabcyygo left}
+{uvtxyzabcyygo right}
+{uvtxyzabcyygo forward}
+{uvtxyzabcyygo back}
+{uvtxyzabcyynotify {uvtxyzabcyyuser ?} {uvtxyzabcyymessage ?}}
+{uvtxyzabcyyspeak ?}
+{uvtxyzabcyylisten user}
+{uvtxyzabcyyshow ? on map}
+{uvtxyzabcyybrowse page ?}
+{uvtxyzabcyyplay song ?}
+{uvtxyzabcyyfipa request ? to ?}
+{uvtxyzabcyyfipa inform ? to ?}
+{uvtxyzabcyyfipa ack to ?}
+{uvtxyzabcyyfipa cancel to ?}
+{uvtxyzabcyysearch appartement in ?}
+{uvtxyzabcyysearch hotel in ?}
+{uvtxyzabcyyanalyze {uvtxyzabcyyapprtement ?} with user option ?}
+{uvtxyzabcyylocation home}
+{uvtxyzabcyylocation {uvtxyzabcyywork ?}}
+{uvtxyzabcyylocation super-market}
+{uvtxyzabcyyuse gps location}
+{uvtxyzabcyyread text file ?}
+{uvtxyzabcyyuntil ? do ?}
+{uvtxyzabcyyis ? linked to ? }
+{uvtxyzabcyyis link ?}
+{uvtxyzabcyyis link ? ?}
+{uvtxyzabcyyis link ? ? ?}
+{uvtxyzabcyyis link ? ? ? ?}
+{uvtxyzabcyybuy book {uvtxyzabcyyisbn ?} from amazon}
+{uvtxyzabcyywait ? seconds}
+{uvtxyzcall {uvtxyzphone ?} now}
+{uvtxyzsend file ? by email to ?}
+{uvtxyzcall {uvtxyzphone {uvtxyzrazvan other}}}
+{uvtxyzupload ? by ftp}
+{uvtxyzupload ? by http}
+{uvtxyzlearn this ?}
+{uvtxyzfor ? in ? do ?}
+{uvtxyzif ? then ?}
+{uvtxyzif ? then ? else ?}
+{uvtxyzping}
+{uvtxyzgo left}
+{uvtxyzgo right}
+{uvtxyzgo forward}
+{uvtxyzgo back}
+{uvtxyznotify {uvtxyzuser ?} {uvtxyzmessage ?}}
+{uvtxyzspeak ?}
+{uvtxyzlisten user}
+{uvtxyzshow ? on map}
+{uvtxyzbrowse page ?}
+{uvtxyzplay song ?}
+{uvtxyzfipa request ? to ?}
+{uvtxyzfipa inform ? to ?}
+{uvtxyzfipa ack to ?}
+{uvtxyzfipa cancel to ?}
+{uvtxyzsearch appartement in ?}
+{uvtxyzsearch hotel in ?}
+{uvtxyzanalyze {uvtxyzapprtement ?} with user option ?}
+{uvtxyzlocation home}
+{uvtxyzlocation {uvtxyzwork ?}}
+{uvtxyzlocation super-market}
+{uvtxyzuse gps location}
+{uvtxyzread text file ?}
+{uvtxyzuntil ? do ?}
+{uvtxyzis ? linked to ? }
+{uvtxyzis link ?}
+{uvtxyzis link ? ?}
+{uvtxyzis link ? ? ?}
+{uvtxyzis link ? ? ? ?}
+{uvtxyzbuy book {uvtxyzisbn ?} from amazon}
+{uvtxyzwait ? seconds}
+{uvtxyz? ask}
+{uvtxyzuucall {uvtxyzuuphone ?} now}
+{uvtxyzuusend file ? by email to ?}
+{uvtxyzuucall {uvtxyzuuphone {uvtxyzuurazvan other}}}
+{uvtxyzuuupload ? by ftp}
+{uvtxyzuuupload ? by http}
+{uvtxyzuulearn this ?}
+{uvtxyzuufor ? in ? do ?}
+{uvtxyzuuif ? then ?}
+{uvtxyzuuif ? then ? else ?}
+{uvtxyzuuping}
+{uvtxyzuugo left}
+{uvtxyzuugo right}
+{uvtxyzuugo forward}
+{uvtxyzuugo back}
+{uvtxyzuunotify {uvtxyzuuuser ?} {uvtxyzuumessage ?}}
+{uvtxyzuuspeak ?}
+{uvtxyzuulisten user}
+{uvtxyzuushow ? on map}
+{uvtxyzuubrowse page ?}
+{uvtxyzuuplay song ?}
+{uvtxyzuufipa request ? to ?}
+{uvtxyzuufipa inform ? to ?}
+{uvtxyzuufipa ack to ?}
+{uvtxyzuufipa cancel to ?}
+{uvtxyzuusearch appartement in ?}
+{uvtxyzuusearch hotel in ?}
+{uvtxyzuuanalyze {uvtxyzuuapprtement ?} with user option ?}
+{uvtxyzuulocation home}
+{uvtxyzuulocation {uvtxyzuuwork ?}}
+{uvtxyzuulocation super-market}
+{uvtxyzuuuse gps location}
+{uvtxyzuuread text file ?}
+{uvtxyzuuuntil ? do ?}
+{uvtxyzuuis ? linked to ? }
+{uvtxyzuuis link ?}
+{uvtxyzuuis link ? ?}
+{uvtxyzuuis link ? ? ?}
+{uvtxyzuuis link ? ? ? ?}
+{uvtxyzuubuy book {uvtxyzuuisbn ?} from amazon}
+{uvtxyzuuwait ? seconds}
+{uvtxyzyycall {uvtxyzyyphone ?} now}
+{uvtxyzyysend file ? by email to ?}
+{uvtxyzyycall {uvtxyzyyphone {uvtxyzyyrazvan other}}}
+{uvtxyzyyupload ? by ftp}
+{uvtxyzyyupload ? by http}
+{uvtxyzyylearn this ?}
+{uvtxyzyyfor ? in ? do ?}
+{uvtxyzyyif ? then ?}
+{uvtxyzyyif ? then ? else ?}
+{uvtxyzyyping}
+{uvtxyzyygo left}
+{uvtxyzyygo right}
+{uvtxyzyygo forward}
+{uvtxyzyygo back}
+{uvtxyzyynotify {uvtxyzyyuser ?} {uvtxyzyymessage ?}}
+{uvtxyzyyspeak ?}
+{uvtxyzyylisten user}
+{uvtxyzyyshow ? on map}
+{uvtxyzyybrowse page ?}
+{uvtxyzyyplay song ?}
+{uvtxyzyyfipa request ? to ?}
+{uvtxyzyyfipa inform ? to ?}
+{uvtxyzyyfipa ack to ?}
+{uvtxyzyyfipa cancel to ?}
+{uvtxyzyysearch appartement in ?}
+{uvtxyzyysearch hotel in ?}
+{uvtxyzyyanalyze {uvtxyzyyapprtement ?} with user option ?}
+{uvtxyzyylocation home}
+{uvtxyzyylocation {uvtxyzyywork ?}}
+{uvtxyzyylocation super-market}
+{uvtxyzyyuse gps location}
+{uvtxyzyyread text file ?}
+{uvtxyzyyuntil ? do ?}
+{uvtxyzyyis ? linked to ? }
+{uvtxyzyyis link ?}
+{uvtxyzyyis link ? ?}
+{uvtxyzyyis link ? ? ?}
+{uvtxyzyyis link ? ? ? ?}
+{uvtxyzyybuy book {uvtxyzyyisbn ?} from amazon}
+{uvtxyzyywait ? seconds}
+{uvtcall {uvtphone ?} now}
+{uvtsend file ? by email to ?}
+{uvtcall {uvtphone {uvtrazvan other}}}
+{uvtupload ? by ftp}
+{uvtupload ? by http}
+{uvtlearn this ?}
+{uvtfor ? in ? do ?}
+{uvtif ? then ?}
+{uvtif ? then ? else ?}
+{uvtping}
+{uvtgo left}
+{uvtgo right}
+{uvtgo forward}
+{uvtgo back}
+{uvtnotify {uvtuser ?} {uvtmessage ?}}
+{uvtspeak ?}
+{uvtlisten user}
+{uvtshow ? on map}
+{uvtbrowse page ?}
+{uvtplay song ?}
+{uvtfipa request ? to ?}
+{uvtfipa inform ? to ?}
+{uvtfipa ack to ?}
+{uvtfipa cancel to ?}
+{uvtsearch appartement in ?}
+{uvtsearch hotel in ?}
+{uvtanalyze {uvtapprtement ?} with user option ?}
+{uvtlocation home}
+{uvtlocation {uvtwork ?}}
+{uvtlocation super-market}
+{uvtuse gps location}
+{uvtread text file ?}
+{uvtuntil ? do ?}
+{uvtis ? linked to ? }
+{uvtis link ?}
+{uvtis link ? ?}
+{uvtis link ? ? ?}
+{uvtis link ? ? ? ?}
+{uvtbuy book {uvtisbn ?} from amazon}
+{uvtwait ? seconds}
+{uvt? ask}
+{uvtuucall {uvtuuphone ?} now}
+{uvtuusend file ? by email to ?}
+{uvtuucall {uvtuuphone {uvtuurazvan other}}}
+{uvtuuupload ? by ftp}
+{uvtuuupload ? by http}
+{uvtuulearn this ?}
+{uvtuufor ? in ? do ?}
+{uvtuuif ? then ?}
+{uvtuuif ? then ? else ?}
+{uvtuuping}
+{uvtuugo left}
+{uvtuugo right}
+{uvtuugo forward}
+{uvtuugo back}
+{uvtuunotify {uvtuuuser ?} {uvtuumessage ?}}
+{uvtuuspeak ?}
+{uvtuulisten user}
+{uvtuushow ? on map}
+{uvtuubrowse page ?}
+{uvtuuplay song ?}
+{uvtuufipa request ? to ?}
+{uvtuufipa inform ? to ?}
+{uvtuufipa ack to ?}
+{uvtuufipa cancel to ?}
+{uvtuusearch appartement in ?}
+{uvtuusearch hotel in ?}
+{uvtuuanalyze {uvtuuapprtement ?} with user option ?}
+{uvtuulocation home}
+{uvtuulocation {uvtuuwork ?}}
+{uvtuulocation super-market}
+{uvtuuuse gps location}
+{uvtuuread text file ?}
+{uvtuuuntil ? do ?}
+{uvtuuis ? linked to ? }
+{uvtuuis link ?}
+{uvtuuis link ? ?}
+{uvtuuis link ? ? ?}
+{uvtuuis link ? ? ? ?}
+{uvtuubuy book {uvtuuisbn ?} from amazon}
+{uvtuuwait ? seconds}
+{uvtyycall {uvtyyphone ?} now}
+{uvtyysend file ? by email to ?}
+{uvtyycall {uvtyyphone {uvtyyrazvan other}}}
+{uvtyyupload ? by ftp}
+{uvtyyupload ? by http}
+{uvtyylearn this ?}
+{uvtyyfor ? in ? do ?}
+{uvtyyif ? then ?}
+{uvtyyif ? then ? else ?}
+{uvtyyping}
+{uvtyygo left}
+{uvtyygo right}
+{uvtyygo forward}
+{uvtyygo back}
+{uvtyynotify {uvtyyuser ?} {uvtyymessage ?}}
+{uvtyyspeak ?}
+{uvtyylisten user}
+{uvtyyshow ? on map}
+{uvtyybrowse page ?}
+{uvtyyplay song ?}
+{uvtyyfipa request ? to ?}
+{uvtyyfipa inform ? to ?}
+{uvtyyfipa ack to ?}
+{uvtyyfipa cancel to ?}
+{uvtyysearch appartement in ?}
+{uvtyysearch hotel in ?}
+{uvtyyanalyze {uvtyyapprtement ?} with user option ?}
+{uvtyylocation home}
+{uvtyylocation {uvtyywork ?}}
+{uvtyylocation super-market}
+{uvtyyuse gps location}
+{uvtyyread text file ?}
+{uvtyyuntil ? do ?}
+{uvtyyis ? linked to ? }
+{uvtyyis link ?}
+{uvtyyis link ? ?}
+{uvtyyis link ? ? ?}
+{uvtyyis link ? ? ? ?}
+{uvtyybuy book {uvtyyisbn ?} from amazon}
+{uvtyywait ? seconds}
+# CHECK
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}
+{call {phone 012323} now}
+{call {phone {razvan other}}}
+{call {phone {razvan phone}} now}
+{send file {documents readme txt } by email to razvan }
+{learn this something}
+{if {is high {my temperature}} then {take nurofen}}
+{if nurofen then raceala else {esti bine}}
+{ping}
+{speak something}
+{yyis link a b c}

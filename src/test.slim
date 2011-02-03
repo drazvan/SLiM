@@ -1,60 +1,100 @@
 // SLiM script file
 
-{John work}: nr2
-{John home}: "123456"
+//{John work}: nr2
+//{John home}: "123456"
 
 nr1 : "nr2"
 nr2 : "nr2"
 
-phone : work
-person : John
-
-//do {
-//	{notify {person phone}}
-//	ping
-//}
-
-// do {
-//    if {eqi nr1 nr2} {
-//       {notify msg1:"nr1 and nr2 are the same"}
-//    }{
-//       {notify msg2:"nr1 and nr2 are different!"}
-//    }
-// }
-
-red
-green
-blue
+//phone : home
+//person : John
 
 do {
-    print red green blue
+	{notify {person phone}}
+	ping
 }
 
-colors: {red green blue white black}
+ do {
+    if {eqi nr1 nr2} {
+       {notify msg:"nr1 and nr2 are the same"}
+    }{
+       {notify msg:"nr1 and nr2 are different!"}
+    }
+}
+
+//red
+//green
+//blue
+
+//do {
+//    print red green blue
+//}
+
+//colors: {red green blue white black}
+
+//do {
+//	
+//	for X in colors
+//	{
+//	   print X
+//	}
+//}
+
+// Actions
+//{type printA} : action
+
+//{a printA} : 
+//{
+//   print A
+//}
+
+//do {
+//   printA
+//}
+
+{type printLink} : action
+{a printLink}: 
+{
+    {L}
+    {
+        for X in L
+        {
+            print X
+        } 
+    }
+}
+
 
 do {
-	
-	for X in colors
-	{
-	   print X
-	}
+   {printLink {mu ha ha ha}}
+   {printLink {symbolic programming}}
 }
 
 
 // How does a code that uses an inexistent link exist in the hyper graph???
 
+
+
 do {
+	
+	msgLeft : "I'm turning left"
+	msgRight : "I'm turning right"
+	
  	{map spot left}
  	
 	{link target at spot}
+	
+	wherespot : {spot left}
 
 	{if {is target at left}
 		{
-		    {notify msg3: "I'm turning left"}
+		    map message msgLeft
 		}{
-		    {notify msg4: "I'm turning right"}
+		    map message msgRight
 		}
 	}
+	
+	{notify message}
 }
 
 // The above should have been

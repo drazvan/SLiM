@@ -24,6 +24,8 @@ class Lang(Module):
         self.waa.core.add("None")
         self.waa.core.add("in")
         
+        self.waa.core.add("a")
+        
         self.waa.core.add("if")
         self.waa.core.add("eqi")
         self.waa.core.add("is");
@@ -33,6 +35,7 @@ class Lang(Module):
         self.waa.core.add("print")
         
         # capabilities
+        self.waa.core.register_capability(module, "a")
         self.waa.core.register_capability(module, "if")
         self.waa.core.register_capability(module, "eqi")
         self.waa.core.register_capability(module, "is")
@@ -104,6 +107,12 @@ class Lang(Module):
             for s_option in options.symbols:
                 self.waa.core.map(params[0].id, s_option.id)                
                 self.waa.core.do(params[3].id)
+            
+            return "True"
+
+        elif what.id == "a":
+            # automatically set type to action for the given parameter
+            self.waa.core.link(None, None, ["a", params[0].id])
             
             return "True"
 
