@@ -9,7 +9,7 @@ import antlr3
 from slim.lang.output.slimLexer import slimLexer
 from slim.lang.output.slimParser import slimParser
 
-from slim.symbolic.waa import WAA
+from slim.core.waa import SlimCore
 from slim.modules import Ping
 from slim.modules.lang import Lang
 
@@ -28,7 +28,7 @@ if __name__ == '__main__':
     
     print "SLiM python prototype."
     
-    waa = WAA()
+    waa = SlimCore()
         
     # register required modules
     ping = Ping()

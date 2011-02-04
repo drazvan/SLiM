@@ -7,10 +7,13 @@ This is the main model class.
 from symbol import Symbol
 from link import Link
 
-class SLiM:
-    """An implementation of the SLiM model. 
+class Slim:
+    """An implementation of the Slim model. 
     
     Manages symbols, links and mappings, handles modules registration, etc. 
+    
+    You can use the ``Slim.link()`` method to create links.
+    
     """
     
     symbols = {}            # Collection of symbols indexed by id
@@ -51,18 +54,20 @@ class SLiM:
     def link(self, id, info, symbols):
         """Creates a new link.
         
-        For each link, based on the ids of the inner symbols, a 'default_id' is computed. 
-        If this 'default_id' is different than the given 'id' then a new symbol with 
-        'default_id' as id is created and is mapped to the symbol with the id 'id'. This 
+        For each link, based on the ids of the inner symbols, a *default_id* is computed. 
+        If this *default_id* is different than the given *id* then a new symbol with 
+        *default_id* as id is created and is mapped to the symbol with the id *id*. This 
         way a link can be both accessed through the given id or the default id.
-        If 'id' is None only the symbol with the default id is created.
+        If *id* is None only the symbol with the default id is created.
         
-        @param id: The name to be used as the identity of the symbol. It can be None, in which case only 
-                   the default name is used.
-        @param info: The information to be attached with the symbol.
-        @param symbols: The ordered list of symbol ids contained in the link.
+        Parameters:
         
-        Returns the if of the newly created link.
+        - `id`: The name to be used as the identity of the symbol. It can be None, in which case only the default name is used.
+        - `info`: The information to be attached with the symbol.
+        - `symbols`: The ordered list of symbol ids contained in the link. 
+        
+        Returns the id of the newly created link.
+        
         """
         
         default_id = self.id_merge(*symbols)
