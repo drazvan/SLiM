@@ -9,7 +9,7 @@ import antlr3
 from slim.lang.output.slimLexer import slimLexer
 from slim.lang.output.slimParser import slimParser
 
-from slim.core.waa import SlimCore
+from slim.core.slimcore import SlimCore
 from slim.modules import Ping
 from slim.modules.lang import Lang
 
@@ -33,17 +33,17 @@ if __name__ == '__main__':
     # register required modules
     ping = Ping()
     ping.waa = waa
-    waa.core.register(ping, "mPing")
+    waa.register(ping, "mPing")
     
     lang = Lang()
     lang.waa = waa
-    waa.core.register(lang, "mLang")
+    waa.register(lang, "mLang")
     
     
     if len(sys.argv) > 1:
         f = open(sys.argv[1], 'r')
         file_stream = antlr3.ANTLRInputStream(f)
-        parse(file_stream, waa.core)
+        parse(file_stream, waa)
         
     else:
         # launch the interpreter prompt
@@ -58,9 +58,9 @@ if __name__ == '__main__':
                 break
             # Dump the structure
             elif command.startswith("dump"):
-                waa.core.dump()
+                waa.slim.dump()
             # Read command
             else:
                 char_stream = antlr3.ANTLRStringStream(command)
-                parse(char_stream, waa.core)
+                parse(char_stream, waa.slim)
                 

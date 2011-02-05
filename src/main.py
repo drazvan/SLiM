@@ -10,7 +10,7 @@ if __name__ == '__main__':
     print "SLiM python prototype."
     
     waa = SlimCore()
-    core = waa.core
+    core = waa.slim
     
     # register required modules
     waa.register(Ping())
@@ -18,8 +18,8 @@ if __name__ == '__main__':
     waa.do("pong");
     waa.do("ping");
     
-    waa.core.add("msg", "Hellow there")
-    l = waa.core.quick_link(None, [waa.core.symbols["notify"], waa.core.symbols["msg"]])
+    waa.slim.add("msg", "Hellow there")
+    l = waa.slim.quick_link(None, [waa.slim.symbols["notify"], waa.slim.symbols["msg"]])
     waa.do(l.id);
     
     # dump the core

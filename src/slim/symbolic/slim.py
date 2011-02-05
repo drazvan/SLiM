@@ -8,43 +8,51 @@ from symbol import Symbol
 from link import Link
 
 class Slim:
-    """An implementation of the Slim model. 
+    """A structure based on the SLiM model.  
     
-    Manages symbols, links and mappings, handles modules registration, etc. 
-    
-    You can use the ``Slim.link()`` method to create links.
-    
+    Manages symbols, links, mappings and information. 
     """
     
-    symbols = {}            # Collection of symbols indexed by id
-    links = {}              # Dictionary of link symbols indexed by id
+    symbols = {}            
+    """Collection of symbols indexed by id"""
     
-    mappings = {}           # A dictionary with the active mappings.
-                            # Every symbol that does not exist here is considered to be mapped to itself.
+    links = {}
+    """Dictionary of link symbols indexed by id"""
     
+    mappings = {}           
+    """A dictionary with the active mappings.
+       Every symbol that does not exist here is considered to be mapped to itself.
+    """
     
-    _cnt = 0                # counter used for symbols with unspecified names
+    _cnt = 0                
+    """Counter used for symbols with annonymous symbols"""
     
     def __init__(self):  
         """Constructor"""
         
-        # Add default symbols.
-        self.add("type")
-        self.add("module")
-        self.add("capability")
+        self.symbols = {}  
+        self.links = {}
+        self.mappings = {}   
+        self._cnt = 0    
         
         pass
-    
+
     # CREATE
     
-    def add(self, id, info = None):
+    def add(self, id = None, info = None):
         """Adds a new symbol to the model.
         
-        @param id: The name to be used as the identity of the symbol.
-        @param info: The information to be attached with the symbol.
+        If the id is set to `None` then an auto-generated name will be used.
         
-        Returns then newly created symbol.    
+        :param id: The name to be used as the identity of the symbol.
+        :param info: The information to be attached with the symbol.
+        
+        :return: The newly created symbol.    
         """
+        
+        if id == None:
+            self._cnt = self._cnt + 1
+            id = "U" + str(self._cnt)
         
         symbol = Symbol(id, info)
         self.symbols[id] = symbol
@@ -60,13 +68,12 @@ class Slim:
         way a link can be both accessed through the given id or the default id.
         If *id* is None only the symbol with the default id is created.
         
-        Parameters:
+             
+        :param id: The name to be used as the identity of the symbol. It can be None, in which case only the default name is used.
+        :param info: The information to be attached with the symbol.
+        :param symbols: The ordered list of symbol ids contained in the link. 
         
-        - `id`: The name to be used as the identity of the symbol. It can be None, in which case only the default name is used.
-        - `info`: The information to be attached with the symbol.
-        - `symbols`: The ordered list of symbol ids contained in the link. 
-        
-        Returns the id of the newly created link.
+        :return: The id of the newly created link.
         
         """
         
@@ -98,15 +105,15 @@ class Slim:
     def map(self, src, dest):
         """Maps the 'src' symbol to 'dest'.
         
-        @param src: The id of the source symbol.
-        @param dest: The id of the destination symbol.  
+        :param src: The id of the source symbol.
+        :param dest: The id of the destination symbol.  
         """
         
         self.mappings[src] = dest
     
     
     def set_info(self, id, info):
-        """Sets the value of info"""
+        """Sets the information value for a symbol given by id."""
         
         if not id in self.symbols:
             print "id '", id, "' not found" 
@@ -120,11 +127,13 @@ class Slim:
  
         
     def get(self, id, follow = True):
-        """Returns a Symbol instance for the given id.
+        """Search for a symbol. 
         
-        @param id: The id of the desired symbol.
-        @param follow: If it's set to True than if the symbol for id is mapped to another
-        symbol, and so on, then the function returns the last symbol of the chain. 
+        :param id: The id of the desired symbol.
+        :param follow: If it's set to True than if the symbol for id is mapped to \
+        another symbol, and so on, then the function returns the last symbol of the chain.
+        
+        :returns: A symbol instance for the given id. 
         """    
         if not id in self.symbols:
             return None
@@ -139,10 +148,13 @@ class Slim:
         return symbol
     
     def get_link(self, *ids):
-        """Returns a Link instance for the given list of ids.
+        """
         
         If the ids are mapped to other symbols they are automatically followed.
-        @param ids: The list of ids that form the symbols contained in the link.
+        
+        :param ids: The list of ids that form the symbols contained in the link.
+        
+        :returns: A Link instance for the given list of ids and `None` if none is found. 
         """
         
         # we take each id and follow its mappings
@@ -162,10 +174,9 @@ class Slim:
         return self.get(link_id)      
     
     def info(self, id):
-        """Returns the information associated with a symbol. 
+        """Information associated with a symbol (mappings are automatically followed).  
         
-        Mappings are automatically followed.
-        Returns None if the symbol has no info attached or the id is not found.
+        :returns: `None` if the symbol has no info attached or the id is not found.
         """    
         symbol = self.get(id);
         
@@ -173,146 +184,7 @@ class Slim:
             return symbol.info;
         
         return None
-     
-     
-    # REGISTER 
-     
-     
-    def register(self, moduleObj, name):
-        """Performs the registration of a module.
-        
-        When a module is registered a symbol is created with its name. 
-        
-        @param module: An object that represent the module to be registered.
-        @param name: The name under which the module will be registered.
-        
-        Returns the id of the symbol created for the module.
-        """
-              
-        s_module = self.add(name, moduleObj)
-        
-        link1 = self.link(None, None, ["type", name]);
-        self.map(link1, "module")
-        
-        # allow the module to perform initializations and register its capabilities
-        moduleObj.on_register(s_module)
-        
-        return s_module
-    
-    def register_capability(self, module, capability):
-        """Registers a module capability
-        
-        @param module: The symbol corresponding to the module registering the capability.
-        @param capability: The symbol corresponding to the capability being registered.
-        """
-        
-        link1 = self.link(None, None, ["type", capability]);
-        self.map(link1, "capability")
-        
-        link1 = self.link(None, None, ["module", capability]);
-        self.map(link1, module);      
-     
-     
-    # ACTION
-    
-        
-    def do(self, what):
-        """Does something described by a symbol.
-        
-        If 'what' is a symbol whose type is 'capability' then the corresponding module
-        is invoked with no parameters.
-        
-        Returns the id of a symbol or None.
-        """
-        
-        # We go from mapping to mapping until we find an action or
-        # we find a symbol mapped to itself
-        if not what in self.symbols:
-            return None
-        
-        symbol = self.symbols[what]
-                
-        while symbol.id in self.mappings and \
-              self.mappings[symbol.id] != symbol.id and self.mappings[symbol.id] != None:
-            symbol = self.symbols[self.mappings[symbol.id]]
-            
-        type = self.get_type(symbol.id)
-
-        # the final symbol which represents what to do
-        s_what = symbol
-        
-        if s_what == None:
-            print "Could not find '" + what + "'"
-            return None
-        
-        type = self.get_type(s_what.id)
-        
-        # Capability with no parameters
-        if type == "capability":
-            module = self.get(self.id_merge("module", s_what.id)).info
-            return module.do(s_what);
-        # Action with no parameters
-        elif type == "action":
-            
-            # an action body is given by the {a 'action_name'} link
-            body = self.get(self.id_merge("a", s_what.id))
-            
-            if body != None:
-                return self.do(body.id)
-            
-            return None
-            
-        else:
-            # check if it's a link
-            if s_what.id in self.links:
-                first = s_what.symbols[0]
-                type = self.get_type(first.id)
-                
-#                symbol = first
-#                type = self.get_type(symbol.id)
-#                
-#                while type != "action" and symbol.id in self.mappings and \
-#                      self.mappings[symbol.id] != symbol.id and self.mappings[symbol.id] != None:
-#                    symbol = self.symbols[self.mappings[symbol.id]]
-#                    type = self.get_type(symbol.id)
-        
-                # Capability with parameters
-                if type == "capability":
-                    module = self.get(self.id_merge("module", first.id)).info
-                    return module.do(first, s_what.symbols[1:]);
-                
-                elif type == "action":
-                    
-                    # an action body is given by the {a 'action_name'} link
-                    body = self.get(self.id_merge("a", first.id))
-                                       
-                    if body != None:
-                        # extract and map parameters
-                        body_params = body.symbols[0]
-                        
-                        for j in range(min(len(body_params.symbols), len(s_what.symbols) - 1)):
-                            s_value = self.get(s_what.symbols[j + 1].id)
-                            self.map(body_params.symbols[j].id, s_value.id)
-                        
-                        body = body.symbols[1]
-                        
-                        return self.do(body.id)
-                    
-                    return None
-                     
-                
-                # Otherwise we will do every symbol in the link individually
-                result = None
-                for inner_what in s_what.symbols:
-                    result = self.do(inner_what.id)
-                
-                # and return the last result
-                return result 
-            else:
-                print "Don't know to do '" + what + "'"
-                return what
-
-    
+         
     # Functions for internal use
     
     def id_merge(self, *ids):
@@ -350,7 +222,8 @@ class Slim:
         print "Symbolic core dump (", len(self.symbols), " symbols, ", len(self.links), " links, ", len(self.mappings), " mappings)"
                                
         for id in self.symbols:
-            print str(self.symbols[id])
+            if not id in self.links:
+                print str(self.symbols[id])
         print ""
                 
         for link in self.links.itervalues():
@@ -358,6 +231,8 @@ class Slim:
         print ""
         
         for src in self.mappings:
-            print self.symbols[src], " > ", self.symbols[self.mappings[src]]
+            print self.symbols[src], " : ", self.symbols[self.mappings[src]]
         print ""
+        
+        print "---------------the end-------------------"
     

@@ -1,5 +1,18 @@
 // SLiM script file
 
+{
+    if {location home}
+    {
+        do {
+            name : "Razvan"
+            {entry {print name}} 
+        }
+    }
+}
+
+
+
+
 //{John work}: nr2
 //{John home}: "123456"
 
@@ -71,31 +84,31 @@ do {
 }
 
 
-// How does a code that uses an inexistent link exist in the hyper graph???
+// How does a code that uses an inexistent link exist in the hyper graph?
 
 
 
-do {
-	
-	msgLeft : "I'm turning left"
-	msgRight : "I'm turning right"
-	
- 	{map spot left}
+//do {
+//	
+//	msgLeft : "I'm turning left"
+//	msgRight : "I'm turning right"
+//	
+// 	{map spot left}
  	
-	{link target at spot}
+//	{link target at spot}
 	
-	wherespot : {spot left}
+//	wherespot : {spot left}
 
-	{if {is target at left}
-		{
-		    map message msgLeft
-		}{
-		    map message msgRight
-		}
-	}
+//	{if {is target at left}
+//		{
+//		    map message msgLeft
+//		}{
+//		    map message msgRight
+//		}
+//	}
 	
-	{notify message}
-}
+//	{notify message}
+//}
 
 // The above should have been
 // 

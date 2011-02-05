@@ -59,13 +59,13 @@ class Ping(Module):
         
         @param module: The if of the symbol corresponding to the module.
         """
-        self.waa.core.add("ping");
-        self.waa.core.add("pong");
-        self.waa.core.add("notify");
+        self.waa.slim.add("ping");
+        self.waa.slim.add("pong");
+        self.waa.slim.add("notify");
         
-        self.waa.core.register_capability(module, "ping");
-        self.waa.core.register_capability(module, "pong");
-        self.waa.core.register_capability(module, "notify");
+        self.waa.register_capability(module, "ping");
+        self.waa.register_capability(module, "pong");
+        self.waa.register_capability(module, "notify");
         pass
 
     def do(self, what, params = None):
@@ -80,7 +80,7 @@ class Ping(Module):
         elif what.id == "pong": 
             print "pong"
         elif what.id == "notify":
-            symbol = self.waa.core.get(params[0].id)
+            symbol = self.waa.slim.get(params[0].id)
             print "notification: '", symbol.info, "'"
         else:
             print "unknown action"

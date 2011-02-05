@@ -4,51 +4,41 @@ options {
 	language=Python;
 }
 
+@header{
+from slim.symbolic.slim import Slim
+}
+
 @members{
 
-core = None			# the SLiM core component
+core = None			
+"""The SLiM core component"""
 
-mode = ""			# the current mode
+slim = None
+"""The tell-slim or do-slim that will be parsed"""
+
+mode = ""			
+"""The current mode"""
 
 def symbol_id(self, id):
     """symbol rule, id branch"""
     
     if self.mode == "add" or self.mode == "do":
-        s = self.core.get(id)
+        s = self.slim.get(id)
         if s == None:
-            s = self.core.add(id)
+            s = self.slim.add(id)
         else:
             s = s.id
             
         return s
-
-    elif self.mode == "do":
-        s = self.core.get(id)
-        if s == None:
-            print "Could not find symbol '", id, "'"
-            return None
-        return s.id
             
 def symbol_link(self, s_list):
     """symbol rule, link branch"""
     
     if self.mode == "add" or self.mode == "do":
-        link = self.core.get_link(*s_list)
+        link = self.slim.get_link(*s_list)
         
         if link == None:
-            return self.core.link(None, None, s_list)
-        else:
-            return link.id
-
-    elif self.mode == "do":
-        if None in s_list:
-            print "There is a None in the link."
-            return None
-            
-        link = self.core.get_link(*s_list)
-        
-        if link == None:
-            return None
+            return self.slim.link(None, None, s_list)
         else:
             return link.id
 
@@ -61,26 +51,33 @@ def do(self, s):
 def set_info(self, id, val):
     """Sets the information for a symbol"""
     
-    s = self.core.get(id)
+    s = self.slim.get(id)
     if s != None:
-        self.core.set_info(id, val.strip()[1:-1])
+        self.slim.set_info(id, val.strip()[1:-1])
         
 def map(self, id1, id2):
     if id2 != None:
-        self.core.map(id1, id2)
+        self.slim.map(id1, id2)
 }
 
 start	:	command+;
 
-command	:	{self.mode = "add"} s1 = symbol| 
-		{self.mode = "do"} DO s = symbol {self.do(s.s)};
-		
-symbol	returns [s, tmp]:	id {$s = self.symbol_id($id.text)} 
-                               (COLON (info {self.set_info($s, $info.text)} | s2 = symbol {self.map($id.text, s2.s)}) )? 		 
-			| l = link {$s = self.symbol_link(l.s_list)} 
-			       (COLON (info {self.set_info($s, $info.text)} | s2 = symbol {self.map($s, s2.s)}) )?;		// 2
+command	:	{self.mode = "add"}{self.slim = Slim()} s = aslim {self.core.tell(self.slim); self.core.slim.dump()} | 
+		{self.mode = "do"}{self.slim = Slim()} DO s = aslim {self.slim.dump()};
 
-link returns [s_list, tmp]	:	OPEN {$s_list = []} s1 = symbol {$s_list.append(s1.s)} ( s2 = symbol {$s_list.append(s2.s)})*  CLOSE;
+aslim	:	OPEN symbol+ CLOSE;
+		
+symbol	returns [s, tmp]: 	
+                          GT ? 
+                          (
+                          (id {$s = self.symbol_id($id.text)} | l = link {$s = self.symbol_link(l.s_list)}) 
+                          (COLON (i2 = info {self.set_info($s, $i2.text)} | s2 = symbol {self.map($s, s2.s)}) )?
+			  )
+			;		
+
+link returns [s_list, tmp]	:	OPEN {$s_list = []} 
+					(s1 = symbol {$s_list.append(s1.s)} | i1=info {$s_list.append(self.slim.add(None, $i1.text.strip()[1:-1]))})
+					(s2 = symbol {$s_list.append(s2.s)} | i2=info {$s_list.append(self.slim.add(None, $i2.text.strip()[1:-1]))})*  CLOSE;
 
 id 	:	ID;
 info	:	STRING;
@@ -100,8 +97,9 @@ DO 	:	'do';
 OPEN 	:	'{';
 CLOSE 	:	'}';
 COLON 	:	':';
+GT	:	'>';
 
-ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
+ID  :	('a'..'z'|'A'..'Z'|'_'|'-') ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'-')*
     ;
 
 INT :	'0'..'9'+
