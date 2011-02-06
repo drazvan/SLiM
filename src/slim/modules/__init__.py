@@ -23,15 +23,16 @@ class Module(object):
     def on_register(self, s_module):
         """Allows a module to perform initializations and register capabilities.
         
-        @param s_module: The symbol corresponding to the module.
+        :param s_module: The symbol corresponding to the module.
         """
         pass
     
-    def do(self, what, params = None):
+    def do(self, slim, what, params = None):
         """Called when the module needs to do something (i.e. capability).
         
-        @param what: A symbol describing what must be done.
-        @param params: A list of symbols representing the ordered list of parameters.
+        :param slim: The slim on which the module should perform its capability. 
+        :param what: A symbol describing what must be done.
+        :param params: A list of symbols representing the ordered list of parameters.
         """
         
         pass
@@ -68,7 +69,7 @@ class Ping(Module):
         self.waa.register_capability(module, "notify");
         pass
 
-    def do(self, what, params = None):
+    def do(self, slim, what, params = None):
         """Called when the module needs to do something (i.e. capability).
         
         @param what: A symbol describing what must be done.
@@ -80,7 +81,7 @@ class Ping(Module):
         elif what.id == "pong": 
             print "pong"
         elif what.id == "notify":
-            symbol = self.waa.slim.get(params[0].id)
-            print "notification: '", symbol.info, "'"
+            symbol = slim.get(params[0].id)
+            print "notification: '", slim.info(symbol.id), "'"
         else:
             print "unknown action"

@@ -1,4 +1,4 @@
-# $ANTLR 3.3 Nov 30, 2010 12:45:30 E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g 2011-02-05 23:45:52
+# $ANTLR 3.3 Nov 30, 2010 12:45:30 E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g 2011-02-06 11:46:14
 
 import sys
 from antlr3 import *
@@ -197,7 +197,7 @@ class slimParser(Parser):
 
                     self._state.following.pop()
                     #action start
-                    self.core.tell(self.slim); self.core.slim.dump()
+                    self.core.tell(self.slim) #self.core.slim.dump()
                     #action end
 
 
@@ -210,13 +210,16 @@ class slimParser(Parser):
                     #action start
                     self.slim = Slim()
                     #action end
-                    self.match(self.input, DO, self.FOLLOW_DO_in_command59)
-                    self._state.following.append(self.FOLLOW_aslim_in_command65)
+                    #action start
+                    self.entry_points = []
+                    #action end
+                    self.match(self.input, DO, self.FOLLOW_DO_in_command60)
+                    self._state.following.append(self.FOLLOW_aslim_in_command66)
                     self.aslim()
 
                     self._state.following.pop()
                     #action start
-                    self.slim.dump()
+                    self.core.do(self.slim, self.entry_points)
                     #action end
 
 
@@ -241,7 +244,7 @@ class slimParser(Parser):
                 # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:68:7: ( OPEN ( symbol )+ CLOSE )
                 # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:68:9: OPEN ( symbol )+ CLOSE
                 pass 
-                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_aslim75)
+                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_aslim76)
                 # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:68:14: ( symbol )+
                 cnt3 = 0
                 while True: #loop3
@@ -255,7 +258,7 @@ class slimParser(Parser):
                     if alt3 == 1:
                         # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:68:14: symbol
                         pass 
-                        self._state.following.append(self.FOLLOW_symbol_in_aslim77)
+                        self._state.following.append(self.FOLLOW_symbol_in_aslim78)
                         self.symbol()
 
                         self._state.following.pop()
@@ -269,7 +272,7 @@ class slimParser(Parser):
                         raise eee
 
                     cnt3 += 1
-                self.match(self.input, CLOSE, self.FOLLOW_CLOSE_in_aslim80)
+                self.match(self.input, CLOSE, self.FOLLOW_CLOSE_in_aslim81)
 
 
 
@@ -290,12 +293,13 @@ class slimParser(Parser):
 
             self.s = None
             self.tmp = None
+            self.is_entry = None
 
 
 
 
     # $ANTLR start "symbol"
-    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:70:1: symbol returns [s, tmp] : ( GT )? ( ( id | l= link ) ( COLON (i2= info | s2= symbol ) )? ) ;
+    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:70:1: symbol returns [s, tmp, is_entry] : ( GT )? ( ( id | l= link ) ( COLON (i2= info | s2= symbol ) )? ) ;
     def symbol(self, ):
 
         retval = self.symbol_return()
@@ -312,26 +316,32 @@ class slimParser(Parser):
 
         try:
             try:
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:70:24: ( ( GT )? ( ( id | l= link ) ( COLON (i2= info | s2= symbol ) )? ) )
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:71:27: ( GT )? ( ( id | l= link ) ( COLON (i2= info | s2= symbol ) )? )
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:70:34: ( ( GT )? ( ( id | l= link ) ( COLON (i2= info | s2= symbol ) )? ) )
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:72:1: ( GT )? ( ( id | l= link ) ( COLON (i2= info | s2= symbol ) )? )
                 pass 
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:71:27: ( GT )?
+                #action start
+                retval.is_entry = False
+                #action end
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:74:27: ( GT )?
                 alt4 = 2
                 LA4_0 = self.input.LA(1)
 
                 if (LA4_0 == GT) :
                     alt4 = 1
                 if alt4 == 1:
-                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:71:27: GT
+                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:74:28: GT
                     pass 
-                    self.match(self.input, GT, self.FOLLOW_GT_in_symbol121)
+                    self.match(self.input, GT, self.FOLLOW_GT_in_symbol128)
+                    #action start
+                    retval.is_entry = True
+                    #action end
 
 
 
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:72:27: ( ( id | l= link ) ( COLON (i2= info | s2= symbol ) )? )
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:73:27: ( id | l= link ) ( COLON (i2= info | s2= symbol ) )?
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:75:27: ( ( id | l= link ) ( COLON (i2= info | s2= symbol ) )? )
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:76:27: ( id | l= link ) ( COLON (i2= info | s2= symbol ) )?
                 pass 
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:73:27: ( id | l= link )
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:76:27: ( id | l= link )
                 alt5 = 2
                 LA5_0 = self.input.LA(1)
 
@@ -345,9 +355,9 @@ class slimParser(Parser):
                     raise nvae
 
                 if alt5 == 1:
-                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:73:28: id
+                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:76:28: id
                     pass 
-                    self._state.following.append(self.FOLLOW_id_in_symbol181)
+                    self._state.following.append(self.FOLLOW_id_in_symbol190)
                     id1 = self.id()
 
                     self._state.following.pop()
@@ -357,9 +367,9 @@ class slimParser(Parser):
 
 
                 elif alt5 == 2:
-                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:73:65: l= link
+                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:76:65: l= link
                     pass 
-                    self._state.following.append(self.FOLLOW_link_in_symbol191)
+                    self._state.following.append(self.FOLLOW_link_in_symbol200)
                     l = self.link()
 
                     self._state.following.pop()
@@ -369,17 +379,22 @@ class slimParser(Parser):
 
 
 
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:74:27: ( COLON (i2= info | s2= symbol ) )?
+                #action start
+                if retval.is_entry == True:
+                   self.entry_points.append(retval.s)
+
+                #action end
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:82:27: ( COLON (i2= info | s2= symbol ) )?
                 alt7 = 2
                 LA7_0 = self.input.LA(1)
 
                 if (LA7_0 == COLON) :
                     alt7 = 1
                 if alt7 == 1:
-                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:74:28: COLON (i2= info | s2= symbol )
+                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:82:28: COLON (i2= info | s2= symbol )
                     pass 
-                    self.match(self.input, COLON, self.FOLLOW_COLON_in_symbol224)
-                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:74:34: (i2= info | s2= symbol )
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_symbol264)
+                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:82:34: (i2= info | s2= symbol )
                     alt6 = 2
                     LA6_0 = self.input.LA(1)
 
@@ -393,9 +408,9 @@ class slimParser(Parser):
                         raise nvae
 
                     if alt6 == 1:
-                        # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:74:35: i2= info
+                        # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:82:35: i2= info
                         pass 
-                        self._state.following.append(self.FOLLOW_info_in_symbol231)
+                        self._state.following.append(self.FOLLOW_info_in_symbol271)
                         i2 = self.info()
 
                         self._state.following.pop()
@@ -405,9 +420,9 @@ class slimParser(Parser):
 
 
                     elif alt6 == 2:
-                        # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:74:77: s2= symbol
+                        # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:82:77: s2= symbol
                         pass 
-                        self._state.following.append(self.FOLLOW_symbol_in_symbol241)
+                        self._state.following.append(self.FOLLOW_symbol_in_symbol281)
                         s2 = self.symbol()
 
                         self._state.following.pop()
@@ -450,7 +465,7 @@ class slimParser(Parser):
 
 
     # $ANTLR start "link"
-    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:78:1: link returns [s_list, tmp] : OPEN (s1= symbol | i1= info ) (s2= symbol | i2= info )* CLOSE ;
+    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:86:1: link returns [s_list, tmp] : OPEN (s1= symbol | i1= info ) (s2= symbol | i2= info )* CLOSE ;
     def link(self, ):
 
         retval = self.link_return()
@@ -467,14 +482,14 @@ class slimParser(Parser):
 
         try:
             try:
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:78:28: ( OPEN (s1= symbol | i1= info ) (s2= symbol | i2= info )* CLOSE )
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:78:30: OPEN (s1= symbol | i1= info ) (s2= symbol | i2= info )* CLOSE
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:86:28: ( OPEN (s1= symbol | i1= info ) (s2= symbol | i2= info )* CLOSE )
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:86:30: OPEN (s1= symbol | i1= info ) (s2= symbol | i2= info )* CLOSE
                 pass 
-                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_link272)
+                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_link312)
                 #action start
                 retval.s_list = []
                 #action end
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:79:6: (s1= symbol | i1= info )
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:87:6: (s1= symbol | i1= info )
                 alt8 = 2
                 LA8_0 = self.input.LA(1)
 
@@ -488,9 +503,9 @@ class slimParser(Parser):
                     raise nvae
 
                 if alt8 == 1:
-                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:79:7: s1= symbol
+                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:87:7: s1= symbol
                     pass 
-                    self._state.following.append(self.FOLLOW_symbol_in_link287)
+                    self._state.following.append(self.FOLLOW_symbol_in_link327)
                     s1 = self.symbol()
 
                     self._state.following.pop()
@@ -500,9 +515,9 @@ class slimParser(Parser):
 
 
                 elif alt8 == 2:
-                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:79:44: i1= info
+                    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:87:44: i1= info
                     pass 
-                    self._state.following.append(self.FOLLOW_info_in_link295)
+                    self._state.following.append(self.FOLLOW_info_in_link335)
                     i1 = self.info()
 
                     self._state.following.pop()
@@ -512,7 +527,7 @@ class slimParser(Parser):
 
 
 
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:80:6: (s2= symbol | i2= info )*
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:88:6: (s2= symbol | i2= info )*
                 while True: #loop9
                     alt9 = 3
                     LA9_0 = self.input.LA(1)
@@ -524,9 +539,9 @@ class slimParser(Parser):
 
 
                     if alt9 == 1:
-                        # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:80:7: s2= symbol
+                        # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:88:7: s2= symbol
                         pass 
-                        self._state.following.append(self.FOLLOW_symbol_in_link310)
+                        self._state.following.append(self.FOLLOW_symbol_in_link350)
                         s2 = self.symbol()
 
                         self._state.following.pop()
@@ -536,9 +551,9 @@ class slimParser(Parser):
 
 
                     elif alt9 == 2:
-                        # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:80:44: i2= info
+                        # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:88:44: i2= info
                         pass 
-                        self._state.following.append(self.FOLLOW_info_in_link318)
+                        self._state.following.append(self.FOLLOW_info_in_link358)
                         i2 = self.info()
 
                         self._state.following.pop()
@@ -549,7 +564,7 @@ class slimParser(Parser):
 
                     else:
                         break #loop9
-                self.match(self.input, CLOSE, self.FOLLOW_CLOSE_in_link325)
+                self.match(self.input, CLOSE, self.FOLLOW_CLOSE_in_link365)
 
 
 
@@ -575,7 +590,7 @@ class slimParser(Parser):
 
 
     # $ANTLR start "id"
-    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:82:1: id : ID ;
+    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:90:1: id : ID ;
     def id(self, ):
 
         retval = self.id_return()
@@ -583,10 +598,10 @@ class slimParser(Parser):
 
         try:
             try:
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:82:5: ( ID )
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:82:7: ID
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:90:5: ( ID )
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:90:7: ID
                 pass 
-                self.match(self.input, ID, self.FOLLOW_ID_in_id334)
+                self.match(self.input, ID, self.FOLLOW_ID_in_id374)
 
 
 
@@ -612,7 +627,7 @@ class slimParser(Parser):
 
 
     # $ANTLR start "info"
-    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:83:1: info : STRING ;
+    # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:91:1: info : STRING ;
     def info(self, ):
 
         retval = self.info_return()
@@ -620,10 +635,10 @@ class slimParser(Parser):
 
         try:
             try:
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:83:6: ( STRING )
-                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:83:8: STRING
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:91:6: ( STRING )
+                # E:\\Work\\waa\\waa-slim\\src\\slim\\lang\\slim.g:91:8: STRING
                 pass 
-                self.match(self.input, STRING, self.FOLLOW_STRING_in_info341)
+                self.match(self.input, STRING, self.FOLLOW_STRING_in_info381)
 
 
 
@@ -648,25 +663,25 @@ class slimParser(Parser):
 
     FOLLOW_command_in_start31 = frozenset([1, 4, 5])
     FOLLOW_aslim_in_command47 = frozenset([1])
-    FOLLOW_DO_in_command59 = frozenset([5])
-    FOLLOW_aslim_in_command65 = frozenset([1])
-    FOLLOW_OPEN_in_aslim75 = frozenset([5, 7, 9])
-    FOLLOW_symbol_in_aslim77 = frozenset([5, 6, 7, 9])
-    FOLLOW_CLOSE_in_aslim80 = frozenset([1])
-    FOLLOW_GT_in_symbol121 = frozenset([5, 7, 9])
-    FOLLOW_id_in_symbol181 = frozenset([1, 8])
-    FOLLOW_link_in_symbol191 = frozenset([1, 8])
-    FOLLOW_COLON_in_symbol224 = frozenset([5, 7, 9, 10])
-    FOLLOW_info_in_symbol231 = frozenset([1])
-    FOLLOW_symbol_in_symbol241 = frozenset([1])
-    FOLLOW_OPEN_in_link272 = frozenset([5, 7, 9, 10])
-    FOLLOW_symbol_in_link287 = frozenset([5, 6, 7, 9, 10])
-    FOLLOW_info_in_link295 = frozenset([5, 6, 7, 9, 10])
-    FOLLOW_symbol_in_link310 = frozenset([5, 6, 7, 9, 10])
-    FOLLOW_info_in_link318 = frozenset([5, 6, 7, 9, 10])
-    FOLLOW_CLOSE_in_link325 = frozenset([1])
-    FOLLOW_ID_in_id334 = frozenset([1])
-    FOLLOW_STRING_in_info341 = frozenset([1])
+    FOLLOW_DO_in_command60 = frozenset([5])
+    FOLLOW_aslim_in_command66 = frozenset([1])
+    FOLLOW_OPEN_in_aslim76 = frozenset([5, 7, 9])
+    FOLLOW_symbol_in_aslim78 = frozenset([5, 6, 7, 9])
+    FOLLOW_CLOSE_in_aslim81 = frozenset([1])
+    FOLLOW_GT_in_symbol128 = frozenset([5, 7, 9])
+    FOLLOW_id_in_symbol190 = frozenset([1, 8])
+    FOLLOW_link_in_symbol200 = frozenset([1, 8])
+    FOLLOW_COLON_in_symbol264 = frozenset([5, 7, 9, 10])
+    FOLLOW_info_in_symbol271 = frozenset([1])
+    FOLLOW_symbol_in_symbol281 = frozenset([1])
+    FOLLOW_OPEN_in_link312 = frozenset([5, 7, 9, 10])
+    FOLLOW_symbol_in_link327 = frozenset([5, 6, 7, 9, 10])
+    FOLLOW_info_in_link335 = frozenset([5, 6, 7, 9, 10])
+    FOLLOW_symbol_in_link350 = frozenset([5, 6, 7, 9, 10])
+    FOLLOW_info_in_link358 = frozenset([5, 6, 7, 9, 10])
+    FOLLOW_CLOSE_in_link365 = frozenset([1])
+    FOLLOW_ID_in_id374 = frozenset([1])
+    FOLLOW_STRING_in_info381 = frozenset([1])
 
 
 

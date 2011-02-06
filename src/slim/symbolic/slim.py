@@ -4,6 +4,9 @@ This is the main model class.
 @author: Razvan
 '''
 
+import random
+import string
+
 from symbol import Symbol
 from link import Link
 
@@ -25,7 +28,10 @@ class Slim:
     """
     
     _cnt = 0                
-    """Counter used for symbols with annonymous symbols"""
+    """Counter used for symbols with anonymous symbols"""
+    
+    _pref = None
+    """The prefix used for anonymous symbols"""
     
     def __init__(self):  
         """Constructor"""
@@ -34,6 +40,9 @@ class Slim:
         self.links = {}
         self.mappings = {}   
         self._cnt = 0    
+        
+        # generate a random 6 letters prefix
+        self._pref = "".join(random.choice(string.letters) for _ in range(6))
         
         pass
 
@@ -52,7 +61,7 @@ class Slim:
         
         if id == None:
             self._cnt = self._cnt + 1
-            id = "U" + str(self._cnt)
+            id = self._pref + str(self._cnt)
         
         symbol = Symbol(id, info)
         self.symbols[id] = symbol
@@ -148,7 +157,7 @@ class Slim:
         return symbol
     
     def get_link(self, *ids):
-        """
+        """Search for a link by its symbols. 
         
         If the ids are mapped to other symbols they are automatically followed.
         
@@ -236,3 +245,119 @@ class Slim:
         
         print "---------------the end-------------------"
     
+class ContextualSlim(Slim):
+    """A *ContextualSlim* is a slim that exists in the context of another slim. 
+     
+    """
+    
+    def __init__(self, object, context):
+        """Initializes the ContextualSlim by setting the context slim.
+        
+        :param object: The slim for which a context must be attached.
+        :param context: The slim that will be used as a context. 
+        """
+        
+        Slim.__init__(self)
+        
+        self.symbols = object.symbols
+        self.links = object.links;
+        self.mappings = object.mappings;
+        
+        self.context = context
+    
+    def add(self, id = None, info = None):
+        """Any new symbol is created into the context slim"""
+        
+        self.context.add(id, info)
+        
+    def link(self, id, info, symbols):
+        """Any new link is created into the context slim"""
+        
+        self.context.link(id, info, symbols)
+        
+    def map(self, src, dest):
+        """Any new mapping is created into the context slim"""
+        
+        self.context.map(src, dest)
+    
+    def set_info(self, id, info):
+        """Any information is set in the context slim"""
+        
+        self.context.set_info(id, info)
+        
+    def get(self, id, follow = True):
+        """Search for a symbol first in this slim and then in its context. 
+        
+        :param id: The id of the desired symbol.
+        :param follow: If it's set to True than if the symbol for id is mapped to \
+        another symbol, and so on, then the function returns the last symbol of the chain.
+        
+        :returns: A symbol instance for the given id. 
+        """    
+        if not id in self.symbols:
+            return self.context.get(id, follow)
+        
+        symbol = self.symbols[id]
+        
+        if follow:
+            while symbol.id in self.mappings and \
+                  self.mappings[symbol.id] != symbol.id and self.mappings[symbol.id] != None:
+                symbol = self.symbols[self.mappings[symbol.id]]
+        
+            # if the symbol found until now is further mapped in the context we
+            # follow those mappings too
+            if symbol.id in self.context.mappings:
+                symbol = self.context.get(symbol.id)
+    
+        return symbol
+    
+    def info(self, id):
+        """Information associated with a symbol (mappings are automatically followed).  
+        
+        :returns: `None` if the symbol has no info attached or the id is not found.
+        """    
+        symbol = self.get(id);
+        
+        if symbol != None:
+            # if no information is found and the symbol exists also in the context
+            # then we use the information from the context
+            if symbol.info == None and symbol.id in self.context.symbols:
+                return self.context.info(symbol.id)
+                
+            return symbol.info;
+        
+        return None
+
+    def dump(self):
+        """Dumps the content of the contextual slim, for debugging purposes.
+        
+        """
+        
+        print "Symbolic core dump (", len(self.symbols), " symbols, ", len(self.links), " links, ", len(self.mappings), " mappings)"
+                               
+        for id in self.symbols:
+            if not id in self.links:
+                print str(self.symbols[id])
+                
+        for id in self.context.symbols:
+            if not id in self.context.links:
+                print str(self.context.symbols[id])
+        print ""
+                
+        for link in self.links.itervalues():
+            print link
+            
+        for link in self.context.links.itervalues():
+            print link
+            
+        print ""
+        
+        for src in self.mappings:
+            print self.symbols[src], " : ", self.symbols[self.mappings[src]]
+            
+        for src in self.context.mappings:
+            print self.context.symbols[src], " : ", \
+                self.context.symbols[self.context.mappings[src]]
+        print ""
+        
+        print "---------------the end-------------------"

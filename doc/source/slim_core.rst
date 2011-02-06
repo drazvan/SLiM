@@ -1,10 +1,6 @@
 The SLiM Core
 =============
 
-.. image:: images/waa-quick.png
-	:width: 300
-	:align: right
-
 SLiM core is a middleware component that is intended to be embedded in an agent 
 architecture. It provides a clear API through which other modules, which are 
 part of the agent architecture, can connect.
@@ -29,6 +25,17 @@ of the registration process.
 There is one default module called *lang* providing a language that can be used 
 to manipulate the core. This language can be used through the SLiM interpreter 
 or from any other code through the Do API.
+
+.. image:: images/waa-quick.png
+	:width: 300
+	:align: left
+
+
+.. py:currentmodule:: slim.modules
+
+.. autoclass:: Module
+   :member-order: bysource
+   :members:
 
 
 Patterns

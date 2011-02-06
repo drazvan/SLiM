@@ -62,15 +62,23 @@ def map(self, id1, id2):
 
 start	:	command+;
 
-command	:	{self.mode = "add"}{self.slim = Slim()} s = aslim {self.core.tell(self.slim); self.core.slim.dump()} | 
-		{self.mode = "do"}{self.slim = Slim()} DO s = aslim {self.slim.dump()};
+command	:	{self.mode = "add"}{self.slim = Slim()} s = aslim {self.core.tell(self.slim) #self.core.slim.dump()} | 
+		{self.mode = "do"}{self.slim = Slim()}{self.entry_points = []} DO s = aslim {self.core.do(self.slim, self.entry_points)};
 
 aslim	:	OPEN symbol+ CLOSE;
 		
-symbol	returns [s, tmp]: 	
-                          GT ? 
+symbol	returns [s, tmp, is_entry]: 	
+
+{$is_entry = False} 
+
+                          (GT {$is_entry = True})? 
                           (
                           (id {$s = self.symbol_id($id.text)} | l = link {$s = self.symbol_link(l.s_list)}) 
+                          	
+{if $is_entry == True:
+    self.entry_points.append($s)
+}
+
                           (COLON (i2 = info {self.set_info($s, $i2.text)} | s2 = symbol {self.map($s, s2.s)}) )?
 			  )
 			;		

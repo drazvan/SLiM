@@ -6,5 +6,25 @@
 
 {
    {my name} : "Razvan"
-   {Razvan age "25"} 
+   {Razvan age "25"}
+   some-value : "Original" 
+}
+
+do {
+    some-value : "Some value"
+    >{notify some-value }
+}
+
+do {
+    some-value : "Some other value"
+    >{notify some-value }
+    >{notify "Hello, I'm printing anonymous symbols"}
+}
+
+do{
+    >{
+        {notify some-value}
+        {copy some-value "A new value"}
+        {notify some-value}
+     }
 }

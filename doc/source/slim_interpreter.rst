@@ -63,7 +63,7 @@ will be referred to as core-slim.
 Tell mode
 ~~~~~~~~~
 
-When a tell-slim is passed to the SLiM core, the core-slim will "assimilate" it 
+When a tell-slim is passed to the SLiM core, the core-slim will "load" it 
 by creating the missing symbols, links and mappings. For example: ::
 
    {
@@ -80,21 +80,36 @@ the above links and the mapping from the last line will have to be created.
 Do mode
 ~~~~~~~
 
-On the other hand, when a slim is passed in *do* mode it will only *unify* with 
-the slim structure of the SLiM core for the duration of the required actions.
+On the other hand, when a slim is passed in *do* mode it will be used in the
+context of the core-slim for the duration of the required actions.
 For example: ::
 
    do {
       some-picture : {profile picture}
       >{show on screen some-picture}
    }
+   
+A do-slim is not loaded as is the case for a tell-slim! (see below)
     
-By the unification process a new unified-slim will be created from the union of 
-the core-slim and the do-slim by taking the symbols  
-``profile``, ``picture``,  ``{profile picture}``, ``show``, ``on`` and 
-``screen`` only once. The action indicated by the entry point will be performed
-on this new slim and after that it will be discarded. 
+Contextual slim 
+###############
 
+What does "*used in the context*" mean?
+Given a do-slim, a new **contextual slim** will be created from the union of 
+the core-slim and the do-slim in which the core-slim will act as a context. 
+That means that whenever a symbol is not found in the do-slim it will be also
+searched in the context slim. The same goes for links, mappings and information.
+For example, the information for ``{profile picture}`` in the above example 
+will be fetched from the context slim (which is the core-slim). 
+
+All the actions indicated by the entry points will be performed on the 
+contextual slim and after that it will be discarded. 
 Obviously, assuming the tell-slim from the previous example is processed right
 before this one then ``picture327`` will be displayed on the screen. 
 
+Updates during actions
+######################
+
+All the updates that are performed on the context slim during the execution of
+different actions are actually performed on the context-slim. This way their
+effect will persist even after discarding the contextual slim. 

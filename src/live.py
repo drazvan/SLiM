@@ -23,9 +23,7 @@ def parse(stream, core):
     parser.core = core
     parser.start()
 
-
-if __name__ == '__main__':
-    
+if __name__ == '__main__':    
     print "SLiM python prototype."
     
     waa = SlimCore()
