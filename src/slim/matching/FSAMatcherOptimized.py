@@ -3,13 +3,6 @@ Created on Jan 19, 2011
 
 @author: Razvan
 '''
-
-'''
-Created on Jan 18, 2011
-
-@author: Razvan
-'''
-
 import time
 
 class FSAMatcher(object):
@@ -336,7 +329,7 @@ class FSAMatcher(object):
                 if self.transitions[self.state_ttable[state]][self.state_tindex[state]][0] != -1:
                     next_state = self.transitions[self.state_ttable[state]][self.state_tindex[state]][0]
                 else:
-                    print "Unexpected token '", symbol, "' in position ", position
+                    #print "Unexpected token '", symbol, "' in position ", position
                     return
             else:
                 # if there's a jump on the current token and it is part of the same transition table as the state, we take it
@@ -359,13 +352,13 @@ class FSAMatcher(object):
                         
                         # however we don't make transitions on "}" for ?
                         elif id == 2:
-                            print "Expected symbol or { and found }"
+                            # print "Expected symbol or { and found }"
                             return
                             
                         next_state = self.transitions[self.state_ttable[state]][self.state_tindex[state]][0]
                             
                     else:
-                        print "Unexpected token '", symbol, "' in position ", position
+                        # print "Unexpected token '", symbol, "' in position ", position
                         return
                         
             state = next_state
@@ -373,9 +366,11 @@ class FSAMatcher(object):
             tokens = tokens[1:]
             
         if not state in self.final_states:
-            print "I did not reach a final state: ", state
+            # print "I did not reach a final state: ", state
+            return -1
         else:
-            print "Found match '", self.patterns[self.found_pattern[state]], "' for '", data.strip(), "'"        
+            # print "Found match '", self.patterns[self.found_pattern[state]], "' for '", data.strip(), "'"
+            return self.found_pattern[state]        
             
             
         
@@ -456,45 +451,46 @@ class FSAMatcher(object):
         
         f.close()
         
+if __name__ == '__main__':    
+        
+    matcher = FSAMatcher()
     
-matcher = FSAMatcher()
-
-#matcher.add_pattern("{call {phone ?} now}")
-#matcher.add_pattern("{? stay}")
-#matcher.add_pattern("{send file ? by email to ?}")
-#matcher.add_pattern("{call {phone {razvan other}}}")
-
-matcher.read_file("patterns.txt")
-
-#matcher.match("{call {phone 012323} now}")
-#matcher.match("{call {phone {razvan other}}}")
-#matcher.match("{call {phone {razvan phone}} now}")
-#matcher.match("{send file {documents readme txt } by email to razvan }")
-
-#matcher.match("{{{{{{a}}}}} stay }")
-
-matcher.write_graph("e:\\graph.dot")
-
-#matcher.dump()
-
-new_estimate = 0
-table_count = 0
-for t in range(len(matcher.transitions)):
-    if matcher.transitions[t] == [[]]:
-        continue
-
-    # print "Table ", t, " with size ", len(matcher.transitions[t]), " x ", len(matcher.transitions[t][0])
+    #matcher.add_pattern("{call {phone ?} now}")
+    #matcher.add_pattern("{? stay}")
+    #matcher.add_pattern("{send file ? by email to ?}")
+    #matcher.add_pattern("{call {phone {razvan other}}}")
     
-    table_count = table_count + 1
-    new_estimate = new_estimate + len(matcher.transitions[t]) * len(matcher.transitions[t][0]) 
-
-
-print "No patterns: ", len(matcher.patterns)
-print "No symbols: ", len(matcher.symbols)
-print "No states: ", len(matcher.transitions)
-print "old Estimated memory: ", len(matcher.symbols) * len(matcher.transitions) * 4 / 1024, " kb"
-
-print "No tables: ", table_count    
-print "New Estimated memory: ", new_estimate * 4 / 1024, " kb"
-
+    matcher.read_file("patterns.txt")
+    
+    #matcher.match("{call {phone 012323} now}")
+    #matcher.match("{call {phone {razvan other}}}")
+    #matcher.match("{call {phone {razvan phone}} now}")
+    #matcher.match("{send file {documents readme txt } by email to razvan }")
+    
+    #matcher.match("{{{{{{a}}}}} stay }")
+    
+    matcher.write_graph("e:\\graph.dot")
+    
+    #matcher.dump()
+    
+    new_estimate = 0
+    table_count = 0
+    for t in range(len(matcher.transitions)):
+        if matcher.transitions[t] == [[]]:
+            continue
+    
+        # print "Table ", t, " with size ", len(matcher.transitions[t]), " x ", len(matcher.transitions[t][0])
+        
+        table_count = table_count + 1
+        new_estimate = new_estimate + len(matcher.transitions[t]) * len(matcher.transitions[t][0]) 
+    
+    
+    print "No patterns: ", len(matcher.patterns)
+    print "No symbols: ", len(matcher.symbols)
+    print "No states: ", len(matcher.transitions)
+    print "old Estimated memory: ", len(matcher.symbols) * len(matcher.transitions) * 4 / 1024, " kb"
+    
+    print "No tables: ", table_count    
+    print "New Estimated memory: ", new_estimate * 4 / 1024, " kb"
+    
 

@@ -16,31 +16,26 @@ core = None
 slim = None
 """The tell-slim or do-slim that will be parsed"""
 
-mode = ""			
-"""The current mode"""
-
 def symbol_id(self, id):
     """symbol rule, id branch"""
     
-    if self.mode == "add" or self.mode == "do":
-        s = self.slim.get(id)
-        if s == None:
-            s = self.slim.add(id)
-        else:
-            s = s.id
-            
-        return s
+    s = self.slim.get(id)
+    if s == None:
+        s = self.slim.add(id)
+    else:
+        s = s.id
+           
+    return s
             
 def symbol_link(self, s_list):
     """symbol rule, link branch"""
     
-    if self.mode == "add" or self.mode == "do":
-        link = self.slim.get_link(*s_list)
+    link = self.slim.get_link(*s_list)
         
-        if link == None:
-            return self.slim.link(None, None, s_list)
-        else:
-            return link.id
+    if link == None:
+        return self.slim.link(None, None, s_list)
+    else:
+        return link.id
 
 def do(self, s):
     """Does something indicated by a symbol"""
@@ -62,10 +57,10 @@ def map(self, id1, id2):
 
 start	:	command+;
 
-command	:	{self.mode = "add"}{self.slim = Slim()} s = aslim {self.core.tell(self.slim) #self.core.slim.dump()} | 
-		{self.mode = "do"}{self.slim = Slim()}{self.entry_points = []} DO s = aslim {self.core.do(self.slim, self.entry_points)};
+command	:	{self.slim = Slim()} OPEN s = aslim CLOSE {self.core.tell(self.slim) #self.core.slim.dump()} | 
+		{self.slim = Slim()}{self.entry_points = []} DO OPEN s = aslim CLOSE {self.core.do(self.slim, self.entry_points)};
 
-aslim	:	OPEN symbol+ CLOSE;
+aslim	:	symbol+;
 		
 symbol	returns [s, tmp, is_entry]: 	
 
@@ -107,7 +102,7 @@ CLOSE 	:	'}';
 COLON 	:	':';
 GT	:	'>';
 
-ID  :	('a'..'z'|'A'..'Z'|'_'|'-') ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'-')*
+ID  :	('a'..'z'|'A'..'Z'|'_'|'-'|'?') ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'-'|'?')*
     ;
 
 INT :	'0'..'9'+

@@ -4,10 +4,12 @@ Created on Dec 4, 2010
 @author: Razvan
 '''
 
-import sys
 import antlr3
-from slim.lang.output.slimLexer import slimLexer
+
+import sys
+
 from slim.lang.output.slimParser import slimParser
+from slim.lang.output.slimLexer import slimLexer
 
 from slim.core.slimcore import SlimCore
 from slim.modules import Ping
@@ -25,7 +27,7 @@ def parse(stream, core):
 
 if __name__ == '__main__':    
     print "SLiM python prototype."
-    
+ 
     waa = SlimCore()
         
     # register required modules
@@ -36,7 +38,6 @@ if __name__ == '__main__':
     lang = Lang()
     lang.waa = waa
     waa.register(lang, "mLang")
-    
     
     if len(sys.argv) > 1:
         f = open(sys.argv[1], 'r')

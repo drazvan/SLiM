@@ -3,12 +3,11 @@ This is the main model class.
 
 @author: Razvan
 '''
-
 import random
 import string
 
 from symbol import Symbol
-from link import Link
+from link import Link 
 
 class Slim:
     """A structure based on the SLiM model.  
@@ -43,8 +42,6 @@ class Slim:
         
         # generate a random 6 letters prefix
         self._pref = "".join(random.choice(string.letters) for _ in range(6))
-        
-        pass
 
     # CREATE
     
@@ -118,9 +115,12 @@ class Slim:
         :param dest: The id of the destination symbol.  
         """
         
+        s_src = self.get(src, follow = False)
+        s_dest = self.get(dest, follow = False)
+        
         self.mappings[src] = dest
-    
-    
+        s_src.mapping = s_dest
+        
     def set_info(self, id, info):
         """Sets the information value for a symbol given by id."""
         

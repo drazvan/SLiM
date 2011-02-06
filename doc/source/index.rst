@@ -22,6 +22,7 @@ Contents:
    slim_core
    slim_interpreter
    symbols
+   pattern_matching
 
 
 Indices and tables

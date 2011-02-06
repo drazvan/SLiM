@@ -1,7 +1,6 @@
-'''
-Created on Dec 4, 2010
+'''Created on Dec 4, 2010
 
-@author: Razvan
+:author: Razvan
 '''
 from symbol import Symbol
 
@@ -41,5 +40,24 @@ class Link(Symbol):
         
         if self.info != None:
             _str = _str + ": " + '"' + self.info + '"'
+        
+        return _str
+    
+    def nstr(self):
+        """The normal string representation of a link"""
+        
+        # if the link itself is mapped to something else then we follow it
+        if self.mapping != None and self.mapping != self:
+            return self.mapping.nstr()
+        
+        _str = ""
+        
+        for symbol in self.symbols:
+            if _str == "":
+                _str = symbol.nstr()
+            else:
+                _str = _str + " " + symbol.nstr()
+        
+        _str = "{" + _str + "}"
         
         return _str

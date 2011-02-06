@@ -36,19 +36,22 @@ class Lang(Module):
         self.waa.slim.add("copy")
 
         # capabilities
-        self.waa.register_capability(module, "a")
-        self.waa.register_capability(module, "if")
-        self.waa.register_capability(module, "eqi")
-        self.waa.register_capability(module, "is")
-        self.waa.register_capability(module, "link")
-        self.waa.register_capability(module, "map")
-        self.waa.register_capability(module, "for")
-        self.waa.register_capability(module, "print")
-        self.waa.register_capability(module, "copy")
+        
+        #self.waa.register_capability(module, "a")
+        #self.waa.register_capability(module, "if")
+        #self.waa.register_capability(module, "eqi")
+        #self.waa.register_capability(module, "is")
+        #self.waa.register_capability(module, "link")
+        #self.waa.register_capability(module, "map")
+        #self.waa.register_capability(module, "for")
+        #self.waa.register_capability(module, "print")
+        #self.waa.register_capability(module, "copy")
+        (slim, entries) = self.waa.load_slim(">{copy dest:? src:?}")
+        self.waa.register_capability(module, "copy", slim, entries[0]);
         pass
 
     def do(self, slim, what, params = None):
-        if what.id == "if":
+        if what == "if":
             logical_value = self.waa.do(params[0].id)
             
             print "logical value is : " + logical_value
@@ -58,13 +61,13 @@ class Lang(Module):
             else:
                 return self.waa.do(params[1].id)
                 
-        elif what.id == "eqi":
+        elif what == "eqi":
             if slim.info(params[0].id) == slim.info(params[1].id):
                 return "True"
             else:
                 return "False"
             
-        elif what.id == "is":
+        elif what == "is":
             ids = []
             for symbol in params:
                 ids.append(symbol.id)
@@ -75,7 +78,7 @@ class Lang(Module):
             else: 
                 return "False"
             
-        elif what.id == "link":
+        elif what == "link":
             ids = []
             for symbol in params:
                 ids.append(slim.get(symbol.id).id)
@@ -86,12 +89,12 @@ class Lang(Module):
             else: 
                 return "None"
             
-        elif what.id == "map":
+        elif what == "map":
             slim.map(params[0].id, params[1].id)
             
             return params[1].id
         
-        elif what.id == "print":
+        elif what == "print":
             ids = []
             for param in params:
                 ids.append(slim.get(param.id))
@@ -102,7 +105,7 @@ class Lang(Module):
                         
             return "True"
         
-        elif what.id == "for":
+        elif what == "for":
             
             options = slim.get(params[2].id)
             
@@ -112,16 +115,14 @@ class Lang(Module):
             
             return "True"
 
-        elif what.id == "a":
+        elif what == "a":
             # automatically set type to action for the given parameter
             slim.link(None, None, ["a", params[0].id])
             
             return "True"
         
-        elif what.id == "copy":
-            src = slim.get(params[1].id)
-            slim.set_info(params[0].id, src.info)
-            
+        elif what == "copy":
+            slim.set_info(params["dest"].id, slim.info(params["src"].id))            
             return "True"
 
         else:

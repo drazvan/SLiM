@@ -31,7 +31,7 @@ class Module(object):
         """Called when the module needs to do something (i.e. capability).
         
         :param slim: The slim on which the module should perform its capability. 
-        :param what: A symbol describing what must be done.
+        :param what: A symbol representing the name of the found pattern.
         :param params: A list of symbols representing the ordered list of parameters.
         """
         
@@ -60,28 +60,31 @@ class Ping(Module):
         
         @param module: The if of the symbol corresponding to the module.
         """
-        self.waa.slim.add("ping");
-        self.waa.slim.add("pong");
-        self.waa.slim.add("notify");
         
-        self.waa.register_capability(module, "ping");
-        self.waa.register_capability(module, "pong");
-        self.waa.register_capability(module, "notify");
-        pass
+        # create the required symbols
+        self.waa.slim.add("ping")
+        self.waa.slim.add("notify")
+        
+        # create the slims for the patters
+        (slim_ping, ping_entries) = self.waa.load_slim(">ping")
+        (slim_notify, notify_entries) = self.waa.load_slim(">{notify msg:?}")
+        
+        # register the patterns
+        self.waa.register_capability(module, "ping", slim_ping, ping_entries[0]);
+        self.waa.register_capability(module, "notify", slim_notify, notify_entries[0]);
+
 
     def do(self, slim, what, params = None):
         """Called when the module needs to do something (i.e. capability).
         
-        @param what: A symbol describing what must be done.
-        @param params: A list of symbols representing the ordered list of parameters.
+        :param slim: The slim on which the module should perform its capability. 
+        :param what: A symbol representing the name of the found pattern.
+        :param params: A list of symbols representing the ordered list of parameters.
         """
         
-        if what.id == "ping":
+        if what == "ping":
             print "ping"
-        elif what.id == "pong": 
-            print "pong"
-        elif what.id == "notify":
-            symbol = slim.get(params[0].id)
-            print "notification: '", slim.info(symbol.id), "'"
+        elif what == "notify":
+            print "notification: '", slim.info(params["msg"].id), "'"
         else:
             print "unknown action"
