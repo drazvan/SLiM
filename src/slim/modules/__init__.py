@@ -64,15 +64,20 @@ class Ping(Module):
         # create the required symbols
         self.waa.slim.add("ping")
         self.waa.slim.add("notify")
+        self.waa.slim.add("show")
+        self.waa.slim.add("image")
         
         # create the slims for the patters
         (slim_ping, ping_entries) = self.waa.load_slim(">ping")
         (slim_notify, notify_entries) = self.waa.load_slim(">{notify msg:?}")
+        (slim_show_image, show_image_entries) = self.waa.load_slim(">{show image img:?}")
         
         # register the patterns
         self.waa.register_capability(module, "ping", slim_ping, ping_entries[0]);
         self.waa.register_capability(module, "notify", slim_notify, notify_entries[0]);
+        self.waa.register_capability(module, "show image", slim_show_image, show_image_entries[0]);
 
+        
 
     def do(self, slim, what, params = None):
         """Called when the module needs to do something (i.e. capability).
@@ -85,6 +90,15 @@ class Ping(Module):
         if what == "ping":
             print "ping"
         elif what == "notify":
-            print "notification: '", slim.info(params["msg"].id), "'"
+            if slim.get("web") != None:
+                print slim.info(params["msg"].id) + "<br/>"
+            else:
+                print "notification: '", slim.info(params["msg"].id), "'"
+        elif what == "show image":
+            if slim.get("web") != None:
+                print '<img height=200px src="' + \
+                    slim.info(slim.get_link(params["img"].id, "url").id) + '"/><br/>'
+            else:
+                print "can't show image in text mode"
         else:
             print "unknown action"

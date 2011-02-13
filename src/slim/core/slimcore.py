@@ -54,6 +54,12 @@ class SlimCore(object):
         self.slim.add("module")
         self.slim.add("capability")
         
+        self.pattern_names = []
+        self.pattern_slims = []
+        self.pattern_entry_point = []
+        self.pattern_strings = []
+        self.pattern_modules = []
+        
         self.capabilities_automaton = FSAMatcher()
         
     # REGISTER  
@@ -147,10 +153,12 @@ class SlimCore(object):
         
         # First we create a contextual slim
         do_slim = ContextualSlim(slim, self.slim)
+        ret_val = None
         
         for what in entry_points:
-            self.do_entry_point(do_slim, what)
+            ret_val = self.do_entry_point(do_slim, what)
         
+        return ret_val
 
     def do_entry_point(self, slim, what):
         """Does something described by a symbol entry point.
@@ -173,9 +181,15 @@ class SlimCore(object):
             s_what = slim.get(what)
             
             if hasattr(s_what, "symbols"):
+                ret_val = None
+                
                 for s_sub_what in s_what.symbols:
-                    self.do_entry_point(slim, s_sub_what.id)
+                    ret_val = self.do_entry_point(slim, s_sub_what.id)
                     
+                return ret_val
+            
+            # if no match and it is a link then we return it as the result
+            return s_what.id
         else:
             # we must identify the values of parameters if any (symbols mapped
             # to ?)
@@ -187,18 +201,11 @@ class SlimCore(object):
             # make a DF like procedure in parallel on s_what and entry 
             self._df(entry, s_what, params)
             
-            #if len(params) > 0:
-            #    print "Found the following params: "
-            #    for param in params:
-            #        print param, " = ", params[param]
-            #else:
-            #    print "No parameters found"
-                
             # we must notify the corresponding module
             module = self.pattern_modules[match]
             pattern_name = self.pattern_names[match]
             
-            self.modules[module].do(slim, pattern_name, params)
+            return self.modules[module].do(slim, pattern_name, params)
             
     def _df(self, pattern, match, params):
         """Performs a DF on pattern and in parallel on match.

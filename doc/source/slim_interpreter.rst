@@ -110,6 +110,6 @@ before this one then ``picture327`` will be displayed on the screen.
 Updates during actions
 ######################
 
-All the updates that are performed on the context slim during the execution of
+All the updates that are performed on the contextual slim during the execution of
 different actions are actually performed on the context-slim. This way their
 effect will persist even after discarding the contextual slim. 

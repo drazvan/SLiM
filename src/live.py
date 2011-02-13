@@ -25,9 +25,8 @@ def parse(stream, core):
     parser.core = core
     parser.start()
 
-if __name__ == '__main__':    
-    print "SLiM python prototype."
- 
+
+def test():
     waa = SlimCore()
         
     # register required modules
@@ -63,3 +62,8 @@ if __name__ == '__main__':
                 char_stream = antlr3.ANTLRStringStream(command)
                 parse(char_stream, waa.slim)
                 
+                
+if __name__ == '__main__':    
+    print "SLiM python prototype."
+ 
+    test()                

@@ -1,30 +1,29 @@
 {
-   {picture327 type jpg}
-   {picture327 url "http://something.org/a.jpg"}
-   {profile picture} : picture327   
-} 
-
-{
    {my name} : "Razvan"
    {Razvan age "25"}
    some-value : "Original" 
 }
 
 do {
-    some-value : "Some value"
-    >{notify some-value }
-}
-
-do {
-    some-value : "Some other value"
-    >{notify some-value }
-    >{notify "Hello, I'm printing anonymous symbols"}
-}
-
-do{
+    
     >{
-        {notify some-value}
-        {copy some-value "A new value"}
-        {notify some-value}
+        {if {eqi "abc" "abc"} 
+        then {notify "They are equal"} 
+        else {notify "They are not equal"}
+        }    
      }
 }
+
+Message: ?
+Destination: ?
+Priority: normal
+
+{send Message Destination Priority }
+
+
+{is symbol:* }
+
+{ is Symbol:+ of type T:?}
+{ link Symbol:* }
+
+

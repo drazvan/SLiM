@@ -27,6 +27,8 @@ class Lang(Module):
         self.waa.slim.add("a")
         
         self.waa.slim.add("if")
+        self.waa.slim.add("then")
+        self.waa.slim.add("else")
         self.waa.slim.add("eqi")
         self.waa.slim.add("is");
         self.waa.slim.add("link");
@@ -38,31 +40,44 @@ class Lang(Module):
         # capabilities
         
         #self.waa.register_capability(module, "a")
-        #self.waa.register_capability(module, "if")
+        
+        (slim, entries) = self.waa.load_slim(">{if cond:? then true:? else false:?}")
+        self.waa.register_capability(module, "if-then-else", slim, entries[0]);
+        
+        (slim, entries) = self.waa.load_slim(">{if cond:? then true:?}")
+        self.waa.register_capability(module, "if-then", slim, entries[0]);
+        
         #self.waa.register_capability(module, "eqi")
+        (slim, entries) = self.waa.load_slim(">{eqi s1:? s2:?}")
+        self.waa.register_capability(module, "eqi", slim, entries[0]);
+        
+        
         #self.waa.register_capability(module, "is")
         #self.waa.register_capability(module, "link")
         #self.waa.register_capability(module, "map")
         #self.waa.register_capability(module, "for")
         #self.waa.register_capability(module, "print")
-        #self.waa.register_capability(module, "copy")
-        (slim, entries) = self.waa.load_slim(">{copy dest:? src:?}")
+        
+        (slim, entries) = self.waa.load_slim(">{copy dest:? else src:?}")
         self.waa.register_capability(module, "copy", slim, entries[0]);
         pass
 
     def do(self, slim, what, params = None):
-        if what == "if":
-            logical_value = self.waa.do(params[0].id)
+        if "if-then" in what:
+            logical_value = self.waa.do(slim, [params["cond"].id])
             
             print "logical value is : " + logical_value
             
-            if logical_value == "False":
-                return self.waa.do(params[2].id)
+            if logical_value == "True":
+                return self.waa.do(slim, [params["true"].id])
             else:
-                return self.waa.do(params[1].id)
+                if "false" in params:
+                    return self.waa.do(slim, [params["false"].id])
+                else:
+                    return None
                 
         elif what == "eqi":
-            if slim.info(params[0].id) == slim.info(params[1].id):
+            if slim.info(params["s1"].id) == slim.info(params["s2"].id):
                 return "True"
             else:
                 return "False"

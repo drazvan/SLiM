@@ -14,9 +14,9 @@ class FSAMatcher(object):
     symbol_counter = 0 
     # The list of symbols that the automata recognizes
     symbols = []
-    # Dictionary with a numeric id for each symbol 
-    id = {}
-    # Dictionary with the text for an id
+    # Dictionary with a numeric ids for each symbol 
+    ids = {}
+    # Dictionary with the text for an ids
     text = {}
    
     # Dictionary indicating the transition table (its number) for each state
@@ -49,6 +49,44 @@ class FSAMatcher(object):
         """Initializations.
         
         """
+        
+        # The list of patterns that the FSM recognizes
+        self.patterns = []
+       
+        # Counter used for automatic ids given to symbols
+        self.symbol_counter = 0 
+        # The list of symbols that the automata recognizes
+        self.symbols = []
+        # Dictionary with a numeric ids for each symbol 
+        self.ids = {}
+        # Dictionary with the text for an ids
+        self.text = {}
+       
+        # Dictionary indicating the transition table (its number) for each state
+        self.state_ttable = {}
+        # Dictionary indicating the transition table (its number) for each symbol
+        self.symbol_ttable = {}
+        # The index of each state in its corresponding transition table
+        self.state_tindex = {}
+        # The index of each symbol in its corresponding transition table
+        self.symbol_tindex = {}
+        # The matrix with the transition tables
+        self.transitions = [[[]]]
+        # The symbols in each transition table (except ?, { and } )
+        self.tsymbols = [[]]
+        # The states in each transition table
+        self.tstates = [[0]]
+        # The counter for transition tables
+        self.tcounter = 1
+        
+        
+        # The list with final states
+        self.final_states = []
+        # Dictionary with patterns corresponding to final states
+        self.found_pattern = {}
+        
+        # Pattern parents (a pattern added because of a prefix has as parent the original pattern)
+        self.parents = {}
          
         self.add_symbol("?")
         self.add_symbol("{")
@@ -70,29 +108,29 @@ class FSAMatcher(object):
        
     
     def add_symbol(self, symbol, tt = None):
-        """ Adds a symbol to the list of symbols and gives it an id.
+        """ Adds a symbol to the list of symbols and gives it an ids.
         
         @param tt: Table table. The table to which the symbol belongs
         """
         if symbol in self.symbols:
-            return id[symbol]
+            return self.ids[symbol]
         
         self.symbols.append(symbol)
-        self.id[symbol] = self.symbol_counter
+        self.ids[symbol] = self.symbol_counter
         self.text[self.symbol_counter] = symbol
         self.symbol_counter = self.symbol_counter + 1
         
         if tt != None:
             
-            self.symbol_ttable[self.id[symbol]] = tt
-            self.symbol_tindex[self.id[symbol]] = len(self.transitions[tt][0])
-            self.tsymbols[tt].append(self.id[symbol])
+            self.symbol_ttable[self.ids[symbol]] = tt
+            self.symbol_tindex[self.ids[symbol]] = len(self.transitions[tt][0])
+            self.tsymbols[tt].append(self.ids[symbol])
             
             # add a new column to the transition matrix
             for l in range(len(self.transitions[tt])):
                 self.transitions[tt][l].append(-1)
         
-        return self.id[symbol] 
+        return self.ids[symbol] 
         
     def add_pattern(self, pattern, parent = None):
         """Adds a pattern to the FSA.
@@ -118,7 +156,7 @@ class FSAMatcher(object):
             if not symbol in self.symbols:
                 self.add_symbol(symbol, self.state_ttable[state])
             
-            id = self.id[symbol]
+            id = self.ids[symbol]
             
             # If the symbol has a different transition table then the current state
             # then we have to merge the two tables (except for ?, { and } )
@@ -319,7 +357,7 @@ class FSAMatcher(object):
         while len(tokens) > 0:
             symbol = tokens[0]
             if symbol in self.symbols:
-                id = self.id[symbol]
+                id = self.ids[symbol]
             else:
                 id = None
                 
@@ -378,8 +416,8 @@ class FSAMatcher(object):
     def dump(self):
         print "There are ", len(self.symbols), " symbols:"
         
-        for symbol in self.id:
-            print symbol, "-", self.id[symbol], ",", 
+        for symbol in self.ids:
+            print symbol, "-", self.ids[symbol], ",", 
         print ""
         
         print "There are ", len(self.patterns), " patterns:" 

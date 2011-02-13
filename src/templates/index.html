@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <script src="js/codemirror.js" type="text/javascript"></script>
+    <script src="js/jquery-1.4.4.js" type="text/javascript"></script>
+    <script src="js/datetime.js" type="text/javascript"></script>
+    <title>SLiM based agent</title>
+    <link rel="stylesheet" type="text/css" href="css/docs.css"/>
+	<link rel="stylesheet" type="text/css" href="css/my.css"/>
+	<link rel="stylesheet" type="text/css" href="css/panels.css"/>
+  </head>
+  <body style="padding: 20px;">
+	
+	<img src="img/logotext.png"></img>
+
+
+	<div style="border-top: 1px solid black; border-bottom: 1px solid black;">
+	<textarea id="code" cols="120" rows="30">
+// SLiM sample
+{
+   web
+   {welcome message} : "Hello World of Artificial Intelligence!"
+   {ai-picture url}: "http://www.lirmm.fr/~dinu/ailogo.gif"
+}
+
+do {
+    >{notify {welcome message} }
+    >{show image ai-picture} 
+}
+
+
+	</textarea>
+	</div>
+
+	<script type="text/javascript">
+	  var textarea = document.getElementById('code');
+	  var editor = new CodeMirror(CodeMirror.replace(textarea), {
+		height: "300px",
+		width: "100%",
+		content: textarea.value,
+		parserfile: ["tokenizejavascript.js", "parsejavascript.js"],
+		stylesheet: "css/jscolors.css",
+		path: "js/",
+		autoMatchParens: true,
+		initCallback: function(editor){editor.win.document.body.lastChild.scrollIntoView();}
+	  });
+	</script>
+
+	<div class="footer">Editor by <a href="http://codemirror.net">CodeMirror</a></div>
+
+
+
+	<script type="text/javascript">
+	function doAjaxPost() {
+	 code = "code=" + editor.getCode();
+	 $.ajax({  
+	   type: "POST",  
+	   url: "/slim-it",  
+	   data: code,  
+	   success: function(resp){  
+	     // we have the response
+	     //alert(resp);
+	     
+	     $("#output").html(
+	     
+	     "<div class=\"panel\"> <div style=\"float:right; font-size:0.8em; color:#aaaaaa\">" + 
+	     CurrentDateTime() + "</div>" +     
+			resp + 
+	     "</div>" 	 + $("#output").html()
+	     );
+	     
+	     setUpPanels();  
+	       
+	   },  
+	   error: function(e){  
+	     alert('Error: ' + e);  
+	   }  
+	 });  
+	}
+	
+	</script>
+	
+	<input type="button" name="slimit" value="Slim it!" onclick="doAjaxPost()">
+	
+	
+	<br/>
+	<br/> 
+	
+	<div id="output">
+	
+	</div>
+
+  </body>
+</html>
